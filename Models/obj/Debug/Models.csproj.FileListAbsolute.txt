@@ -1,0 +1,16 @@
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Models.dll.config
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Models.dll
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Models.pdb
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\EntityFramework.dll
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\EntityFramework.xml
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\mcgil\source\repos\NFLStats\Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\mcgil\source\repos\NFLStats\Models\obj\Debug\Models.csprojAssemblyReference.cache
+C:\Users\mcgil\source\repos\NFLStats\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\mcgil\source\repos\NFLStats\Models\obj\Debug\Models.csproj.CopyComplete
+C:\Users\mcgil\source\repos\NFLStats\Models\obj\Debug\Models.dll
+C:\Users\mcgil\source\repos\NFLStats\Models\obj\Debug\Models.pdb
