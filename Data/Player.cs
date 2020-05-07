@@ -10,7 +10,7 @@ namespace Data
     public class Player
     {
         [Key]
-        public Guid playerId { get; set; }
+        public int playerId { get; set; }
 
         [Required]
         [MinLength(1, ErrorMessage = "You have to enter at least 1 character.")]
@@ -25,7 +25,6 @@ namespace Data
         [MaxLength(30, ErrorMessage = "You entered too many characters.")]
         public string playerPosition { get; set; }
         
-        [Required]
         public int yearsPro { get; set; }
 
         [Required]
@@ -33,7 +32,6 @@ namespace Data
         [MaxLength(30, ErrorMessage = "You entered too many characters.")]
         public string team { get; set; }
 
-        [Required]
         public int numberOfVotes { get; set; }
 
         [Required]

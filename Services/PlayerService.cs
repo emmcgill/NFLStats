@@ -9,14 +9,7 @@ using System.Threading.Tasks;
 namespace Services
 {
     public class PlayerService
-    {
-        private readonly Guid _playerId;
-
-        public PlayerService(Guid playerId)
-        {
-            _playerId = playerId;
-        }
-
+    { 
         public bool CreatePlayer(PlayerCreate player)
         {
             var entity = new Player()
@@ -41,7 +34,6 @@ namespace Services
                 var query =
                     ctx
                     .Players
-                    .Where(p => p.playerId == _playerId)
                     .Select(
                         p => new PlayerListItem
                         {

@@ -14,19 +14,13 @@ namespace API.Controllers
     [Authorize]
     public class PlayerController : ApiController
     {
-        public IHttpActionResult Get()
-        {
-            PlayerService playerService = CreatePlayerService();
-            var players = playerService.GetPlayers();
-            return Ok(players);
-        }
-
+        [HttpPost]
         public IHttpActionResult Post(PlayerCreate player)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreatePlayerService();
+            PlayerService service = new PlayerService();
 
             if (!service.CreatePlayer(player))
                 return InternalServerError();
@@ -34,26 +28,29 @@ namespace API.Controllers
             return Ok();
         }
 
-        private PlayerService CreatePlayerService()
+        [HttpGet]
+        public IHttpActionResult GetIndividualPlayerByName(string name)
         {
-            var playerId = Guid.Parse(User.Identity.GetUserId());
-            var playerService = new PlayerService(playerId);
-            return playerService;
-        }
-
-        public IHttpActionResult Get(string name)
-        {
-            PlayerService playerService = CreatePlayerService();
+            PlayerService playerService = new PlayerService();
             var player = playerService.GetPlayerByName(name);
-            return Ok();
+            return Ok(player);
         }
 
+        [HttpGet]
+        public IHttpActionResult GetAllPlayers()
+        {
+            PlayerService playerService = new PlayerService();
+            var players = playerService.GetPlayers();
+            return Ok(players);
+        }
+
+        [HttpPut]
         public IHttpActionResult Put(PlayerEdit player)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreatePlayerService();
+            PlayerService service = new PlayerService();
 
             if (!service.UpdatePlayer(player))
                 return InternalServerError();
@@ -61,9 +58,10 @@ namespace API.Controllers
             return Ok();
         }
 
+        [HttpDelete]
         public IHttpActionResult Delete(string name)
         {
-            var service = CreatePlayerService();
+            PlayerService service = new PlayerService();
 
             if (!service.DeletePlayer(name))
                 return InternalServerError();
