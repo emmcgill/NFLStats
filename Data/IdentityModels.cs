@@ -33,6 +33,7 @@ namespace Data
             return new ApplicationDbContext();
         }
 
+        public DbSet<Player> Players { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
