@@ -68,3 +68,6 @@ C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.csproj
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.csproj.CopyComplete
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.dll
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.pdb
+C:\Users\mcgil\source\repos\NFLStats\Data\obj\Debug\Data.Migrations.InitialCreate.resources
+C:\Users\mcgil\source\repos\NFLStats\Data\obj\Debug\Data.csproj.GenerateResource.cache
+C:\Users\mcgil\source\repos\NFLStats\Data\obj\Debug\Data.Migrations.SeasonStatMigration.resources
