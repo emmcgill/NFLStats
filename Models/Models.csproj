@@ -54,11 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CareerStatsQBModels\CareerStatsQBCreate.cs" />
-    <Compile Include="CareerStatsQBModels\CareerStatsQBDetail.cs" />
-    <Compile Include="CareerStatsQBModels\CareerStatsQBEdit.cs" />
-    <Compile Include="CareerStatsQBModels\CareerStatsQBListItem.cs" />
+    <Compile Include="PlayerCreate.cs" />
+    <Compile Include="PlayerDetail.cs" />
+    <Compile Include="PlayerEdit.cs" />
+    <Compile Include="PlayerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeasonStatCreate.cs" />
+    <Compile Include="SeasonStatDetail.cs" />
+    <Compile Include="SeasonStatEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
