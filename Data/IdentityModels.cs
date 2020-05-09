@@ -34,6 +34,7 @@ namespace Data
         }
 
         public DbSet<Player> Players { get; set; }
+        public DbSet<SeasonStat> SeasonStats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -36,3 +36,9 @@ C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Services\obj\Debug\Service
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Services\obj\Debug\Services.csproj.CopyComplete
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Services\obj\Debug\Services.dll
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Services\obj\Debug\Services.pdb
+C:\Users\mcgil\source\repos\NFLStats\Services\bin\Debug\Data.dll
+C:\Users\mcgil\source\repos\NFLStats\Services\bin\Debug\Models.dll
+C:\Users\mcgil\source\repos\NFLStats\Services\bin\Debug\Data.pdb
+C:\Users\mcgil\source\repos\NFLStats\Services\bin\Debug\Data.dll.config
+C:\Users\mcgil\source\repos\NFLStats\Services\bin\Debug\Models.pdb
+C:\Users\mcgil\source\repos\NFLStats\Services\bin\Debug\Models.dll.config
