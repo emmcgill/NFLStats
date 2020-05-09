@@ -27,13 +27,14 @@ namespace Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
-        public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<SeasonStat> SeasonStats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
