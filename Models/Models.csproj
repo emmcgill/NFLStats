@@ -54,10 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NewFolder1\CareerStatsQBCreate.cs" />
-    <Compile Include="NewFolder1\CareerStatsQBDetail.cs" />
-    <Compile Include="NewFolder1\CareerStatsQBEdit.cs" />
-    <Compile Include="NewFolder1\CareerStatsQBListItem.cs" />
+    <Compile Include="CareerStatsQB\CareerStatsQBCreate.cs" />
+    <Compile Include="CareerStatsQB\CareerStatsQBDetail.cs" />
+    <Compile Include="CareerStatsQB\CareerStatsQBEdit.cs" />
+    <Compile Include="CareerStatsQB\CareerStatsQBListItem.cs" />
     <Compile Include="PlayerCreate.cs" />
     <Compile Include="PlayerDetail.cs" />
     <Compile Include="PlayerEdit.cs" />
