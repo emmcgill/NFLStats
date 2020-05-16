@@ -3,10 +3,28 @@ namespace Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class RbSeasonStat : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.CareerStatsQB",
+                c => new
+                    {
+                        CareerStatsQbId = c.Int(nullable: false, identity: true),
+                        PlayerId = c.Int(nullable: false),
+                        PassingYards = c.Int(nullable: false),
+                        RushingYards = c.Int(nullable: false),
+                        Completions = c.Int(nullable: false),
+                        Attempts = c.Int(nullable: false),
+                        PassingTouchdowns = c.Int(nullable: false),
+                        RushingTouchdowns = c.Int(nullable: false),
+                        Interceptions = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.CareerStatsQbId)
+                .ForeignKey("dbo.Player", t => t.PlayerId, cascadeDelete: true)
+                .Index(t => t.PlayerId);
+            
             CreateTable(
                 "dbo.Player",
                 c => new
@@ -22,6 +40,25 @@ namespace Data.Migrations
                         modifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.playerId);
+            
+            CreateTable(
+                "dbo.SeasonStatRb",
+                c => new
+                    {
+                        RbSeasonId = c.Int(nullable: false, identity: true),
+                        PlayerId = c.Int(nullable: false),
+                        Year = c.Int(nullable: false),
+                        RushingYards = c.Int(nullable: false),
+                        RushingAttempts = c.Int(nullable: false),
+                        ReceivingYards = c.Int(nullable: false),
+                        Receptions = c.Int(nullable: false),
+                        RushingTouchdowns = c.Int(nullable: false),
+                        ReceivingTouchdowns = c.Int(nullable: false),
+                        Fumbles = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.RbSeasonId)
+                .ForeignKey("dbo.Player", t => t.PlayerId, cascadeDelete: true)
+                .Index(t => t.PlayerId);
             
             CreateTable(
                 "dbo.IdentityRole",
@@ -121,18 +158,24 @@ namespace Data.Migrations
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.SeasonStat", "PlayerId", "dbo.Player");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
+            DropForeignKey("dbo.SeasonStatRb", "PlayerId", "dbo.Player");
+            DropForeignKey("dbo.CareerStatsQB", "PlayerId", "dbo.Player");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.SeasonStat", new[] { "PlayerId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.SeasonStatRb", new[] { "PlayerId" });
+            DropIndex("dbo.CareerStatsQB", new[] { "PlayerId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
             DropTable("dbo.ApplicationUser");
             DropTable("dbo.SeasonStat");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
+            DropTable("dbo.SeasonStatRb");
             DropTable("dbo.Player");
+            DropTable("dbo.CareerStatsQB");
         }
     }
 }

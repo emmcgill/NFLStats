@@ -63,13 +63,17 @@
     <Compile Include="PlayerEdit.cs" />
     <Compile Include="PlayerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeasonStatCreate.cs" />
-    <Compile Include="SeasonStatDetail.cs" />
-    <Compile Include="SeasonStatEdit.cs" />
+    <Compile Include="SeasonStatsRB\RbSeasonStatEdit.cs" />
+    <Compile Include="SeasonStatsQB\SeasonStatCreate.cs" />
+    <Compile Include="SeasonStatsQB\SeasonStatDetail.cs" />
+    <Compile Include="SeasonStatsQB\SeasonStatEdit.cs" />
+    <Compile Include="SeasonStatsRB\RbSeasonStatCreate.cs" />
+    <Compile Include="SeasonStatsRB\RbSeasonStatDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
