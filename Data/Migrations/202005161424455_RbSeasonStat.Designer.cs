@@ -7,13 +7,13 @@ namespace Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class SeasonStatMigration : IMigrationMetadata
+    public sealed partial class RbSeasonStat : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SeasonStatMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RbSeasonStat));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005091542013_SeasonStatMigration"; }
+            get { return "202005161424455_RbSeasonStat"; }
         }
         
         string IMigrationMetadata.Source
