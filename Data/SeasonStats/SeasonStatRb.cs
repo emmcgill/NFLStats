@@ -8,38 +8,33 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class CareerStatsQB
+    public class SeasonStatRb
     {
         [Key]
-        public int CareerStatsQbId { get; set; }
+        public int RbSeasonId { get; set; }
 
         [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
 
         public virtual Player Player { get; set; }
 
-        
         [Required]
-        public int PassingYards { get; set; }
+        public int Year { get; set; }
 
         [Required]
         public int RushingYards { get; set; }
-
         [Required]
-        public int Completions { get; set; }
-
+        public int RushingAttempts { get; set; }
         [Required]
-        public int Attempts { get; set; }
-        
+        public int ReceivingYards { get; set; }
         [Required]
-        public int PassingTouchdowns { get; set; }
-
+        public int Receptions { get; set; }
         [Required]
         public int RushingTouchdowns { get; set; }
-
         [Required]
-        public int Interceptions { get; set; }
+        public int ReceivingTouchdowns { get; set; }
+        [Required]
+        public int Fumbles { get; set; }
 
-        
     }
 }

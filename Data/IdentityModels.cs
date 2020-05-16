@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Data.SeasonStats;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -35,8 +36,11 @@ namespace Data
 
         public DbSet<Player> Players { get; set; }
         public DbSet<SeasonStat> SeasonStats { get; set; }
+        public DbSet<SeasonStatRb> RbSeasonStats { get; set; }
+        public DbSet<SeasonStatWr> WrSeasonStats { get; set; }
 
         public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

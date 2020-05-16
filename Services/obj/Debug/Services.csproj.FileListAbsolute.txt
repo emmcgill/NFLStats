@@ -64,3 +64,25 @@ C:\ElevenFiftyProjects\.NETBlueBadge\NFLStats\Services\obj\Debug\Services.csproj
 C:\ElevenFiftyProjects\.NETBlueBadge\NFLStats\Services\obj\Debug\Services.csproj.CopyComplete
 C:\ElevenFiftyProjects\.NETBlueBadge\NFLStats\Services\obj\Debug\Services.dll
 C:\ElevenFiftyProjects\.NETBlueBadge\NFLStats\Services\obj\Debug\Services.pdb
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Services.dll.config
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Services.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Services.pdb
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Data.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\EntityFramework.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Models.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Data.pdb
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Data.dll.config
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Models.pdb
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Models.dll.config
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\EntityFramework.xml
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\obj\Debug\Services.csprojAssemblyReference.cache
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\obj\Debug\Services.csproj.CopyComplete
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\obj\Debug\Services.dll
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Services\obj\Debug\Services.pdb

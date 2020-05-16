@@ -86,29 +86,31 @@
   <ItemGroup>
     <Compile Include="CareerStatsQB.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202005091412570_InitialCreate.cs" />
-    <Compile Include="Migrations\202005091412570_InitialCreate.Designer.cs">
-      <DependentUpon>202005091412570_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202005161424455_RbSeasonStat.cs" />
+    <Compile Include="Migrations\202005161424455_RbSeasonStat.Designer.cs">
+      <DependentUpon>202005161424455_RbSeasonStat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005091542013_SeasonStatMigration.cs" />
-    <Compile Include="Migrations\202005091542013_SeasonStatMigration.Designer.cs">
-      <DependentUpon>202005091542013_SeasonStatMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202005161718485_WrSeasonStat.cs" />
+    <Compile Include="Migrations\202005161718485_WrSeasonStat.Designer.cs">
+      <DependentUpon>202005161718485_WrSeasonStat.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeasonStat.cs" />
+    <Compile Include="SeasonStats\SeasonStat.cs" />
+    <Compile Include="SeasonStats\SeasonStatRb.cs" />
+    <Compile Include="SeasonStats\SeasonStatWr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005091412570_InitialCreate.resx">
-      <DependentUpon>202005091412570_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005161424455_RbSeasonStat.resx">
+      <DependentUpon>202005161424455_RbSeasonStat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005091542013_SeasonStatMigration.resx">
-      <DependentUpon>202005091542013_SeasonStatMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005161718485_WrSeasonStat.resx">
+      <DependentUpon>202005161718485_WrSeasonStat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
