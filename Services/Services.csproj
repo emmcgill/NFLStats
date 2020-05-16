@@ -57,8 +57,9 @@
     <Compile Include="CareerStatsQBService.cs" />
     <Compile Include="PlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RbSeasonStatService.cs" />
-    <Compile Include="SeasonStatService.cs" />
+    <Compile Include="SeasonStats\RbSeasonStatService.cs" />
+    <Compile Include="SeasonStats\SeasonStatService.cs" />
+    <Compile Include="SeasonStats\WrSeasonStatService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
