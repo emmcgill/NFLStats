@@ -94,11 +94,16 @@
     <Compile Include="Migrations\202005161718485_WrSeasonStat.Designer.cs">
       <DependentUpon>202005161718485_WrSeasonStat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005161845043_TeSeasonStat.cs" />
+    <Compile Include="Migrations\202005161845043_TeSeasonStat.Designer.cs">
+      <DependentUpon>202005161845043_TeSeasonStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonStats\SeasonStat.cs" />
     <Compile Include="SeasonStats\SeasonStatRb.cs" />
+    <Compile Include="SeasonStats\SeasonStatTe.cs" />
     <Compile Include="SeasonStats\SeasonStatWr.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005161718485_WrSeasonStat.resx">
       <DependentUpon>202005161718485_WrSeasonStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005161845043_TeSeasonStat.resx">
+      <DependentUpon>202005161845043_TeSeasonStat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

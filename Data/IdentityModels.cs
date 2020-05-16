@@ -38,6 +38,7 @@ namespace Data
         public DbSet<SeasonStat> SeasonStats { get; set; }
         public DbSet<SeasonStatRb> RbSeasonStats { get; set; }
         public DbSet<SeasonStatWr> WrSeasonStats { get; set; }
+        public DbSet<SeasonStatTe> TeSeasonStats { get; set; }
 
         public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
 
