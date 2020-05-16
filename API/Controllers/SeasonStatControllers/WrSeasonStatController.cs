@@ -21,7 +21,7 @@ namespace API.Controllers.SeasonStatControllers
         }
 
         [HttpGet]
-        public IHttpActionResult GetRbSeasonById(int seasonId)
+        public IHttpActionResult GetWrSeasonById(int seasonId)
         {
             WrSeasonStatService seasonService = new WrSeasonStatService();
             var season = seasonService.GetWrSeasonBySeasonId(seasonId);

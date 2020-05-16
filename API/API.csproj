@@ -211,6 +211,7 @@
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\RbSeasonStatController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\SeasonStatController.cs" />
+    <Compile Include="Controllers\SeasonStatControllers\TeSeasonStatController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\WrSeasonStatController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
