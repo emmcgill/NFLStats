@@ -146,3 +146,4 @@ C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Data\obj\Debug\Data.
 C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Data\obj\Debug\Data.pdb
 C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Data\obj\Debug\Data.Migrations.RbSeasonStat.resources
 C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Data\obj\Debug\Data.csproj.GenerateResource.cache
+C:\Users\mcgil\source\repos\ElevenFifty\Blue Badge\NFLStats\Data\obj\Debug\Data.Migrations.WrSeasonStat.resources

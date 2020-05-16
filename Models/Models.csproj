@@ -69,6 +69,9 @@
     <Compile Include="SeasonStatsQB\SeasonStatEdit.cs" />
     <Compile Include="SeasonStatsRB\RbSeasonStatCreate.cs" />
     <Compile Include="SeasonStatsRB\RbSeasonStatDetail.cs" />
+    <Compile Include="SeasonStatsWr\WrSeasonStatCreate.cs" />
+    <Compile Include="SeasonStatsWr\WrSeasonStatDetail.cs" />
+    <Compile Include="SeasonStatsWr\WrSeasonStatEdit.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
