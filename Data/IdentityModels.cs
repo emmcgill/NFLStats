@@ -33,6 +33,10 @@ namespace Data
             return new ApplicationDbContext();
         }
 
+        public DbSet<Player> Players { get; set; }
+        public DbSet<SeasonStat> SeasonStats { get; set; }
+
+        public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
