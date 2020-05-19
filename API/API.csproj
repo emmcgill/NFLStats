@@ -206,7 +206,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CareerStatsQBController.cs" />
+    <Compile Include="Controllers\CareerStatsControllers\CareerStatsQBController.cs" />
+    <Compile Include="Controllers\CareerStatsControllers\CareerStatsRBController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\SeasonStatController.cs" />

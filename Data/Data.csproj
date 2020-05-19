@@ -84,7 +84,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CareerStatsQB.cs" />
+    <Compile Include="CareerStats\CareerStatsQB.cs" />
+    <Compile Include="CareerStats\CareerStatsRB.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202005091412570_InitialCreate.cs" />
     <Compile Include="Migrations\202005091412570_InitialCreate.Designer.cs">

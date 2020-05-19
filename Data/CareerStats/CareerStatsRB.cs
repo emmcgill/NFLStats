@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Data
 {
-    public class CareerStatsQB
+    public class CareerStatsRB
     {
+        [Key]
+        public int CareerRBId { get; set; }
+
         [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
 
@@ -17,26 +19,18 @@ namespace Data
 
         
         [Required]
-        public int PassingYards { get; set; }
-
-        [Required]
         public int RushingYards { get; set; }
-
         [Required]
-        public int Completions { get; set; }
-
+        public int RushingAttempts { get; set; }
         [Required]
-        public int Attempts { get; set; }
-        
+        public int ReceivingYards { get; set; }
         [Required]
-        public int PassingTouchdowns { get; set; }
-
+        public int Receptions { get; set; }
         [Required]
         public int RushingTouchdowns { get; set; }
-
         [Required]
-        public int Interceptions { get; set; }
-
-        
+        public int ReceivingTouchdowns { get; set; }
+        [Required]
+        public int Fumbles { get; set; }
     }
 }
