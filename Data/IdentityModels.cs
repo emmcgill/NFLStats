@@ -43,6 +43,8 @@ namespace Data
         public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
 
 
+        public DbSet<Vote> Votes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

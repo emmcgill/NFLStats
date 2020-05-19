@@ -14,10 +14,10 @@ namespace Services
         {
             var entity = new Player()
             {
-                 name = player.Name,
-                 playerNumber = player.PlayerNumber,
-                 playerPosition = player.PlayerPosition,
-                 team = player.Team
+                 Name = player.Name,
+                 PlayerNumber = player.PlayerNumber,
+                 PlayerPosition = player.PlayerPosition,
+                 Team = player.Team
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -37,10 +37,11 @@ namespace Services
                     .Select(
                         p => new PlayerListItem
                         {
-                            Name = p.name,
-                            PlayerNumber = p.playerNumber,
-                            PlayerPosition = p.playerPosition,
-                            Team = p.team
+                            Name = p.Name,
+                            PlayerNumber = p.PlayerNumber,
+                            PlayerPosition = p.PlayerPosition,
+                            Team = p.Team,
+                            PlayerId = p.PlayerId
                         }
                     );
                 return query.ToArray();
@@ -54,16 +55,16 @@ namespace Services
                 var entity =
                     ctx
                         .Players
-                        .Single(p => p.name == name);
+                        .Single(p => p.Name == name);
                 return
                     new PlayerDetail
                     {
-                        Name = entity.name,
-                        PlayerNumber = entity.playerNumber,
-                        PlayerPosition = entity.playerPosition,
-                        Team = entity.team,
-                        CreatedUtc = entity.createdUtc,
-                        ModifiedUtc = entity.modifiedUtc
+                        Name = entity.Name,
+                        PlayerNumber = entity.PlayerNumber,
+                        PlayerPosition = entity.PlayerPosition,
+                        Team = entity.Team,
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -75,12 +76,12 @@ namespace Services
                 var entity =
                     ctx
                         .Players
-                        .Single(p => p.name == player.Name);
-                entity.name = player.Name;
-                entity.playerNumber = player.PlayerNumber;
-                entity.playerPosition = player.PlayerPosition;
-                entity.team = player.Team;
-                entity.modifiedUtc = DateTimeOffset.UtcNow;
+                        .Single(p => p.Name == player.Name);
+                entity.Name = player.Name;
+                entity.PlayerNumber = player.PlayerNumber;
+                entity.PlayerPosition = player.PlayerPosition;
+                entity.Team = player.Team;
+                entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -93,7 +94,7 @@ namespace Services
                 var entity =
                     ctx
                         .Players
-                        .Single(p => p.name == name);
+                        .Single(p => p.Name == name);
 
                 ctx.Players.Remove(entity);
 
