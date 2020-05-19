@@ -10,33 +10,33 @@ namespace Data
     public class Player
     {
         [Key]
-        public int playerId { get; set; }
+        public int PlayerId { get; set; }
 
         [Required]
         [MinLength(1, ErrorMessage = "You have to enter at least 1 character.")]
         [MaxLength(40, ErrorMessage = "You entered too many characters.")]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        public int playerNumber { get; set; }
+        public int PlayerNumber { get; set; }
 
         [Required]
         [MinLength(4, ErrorMessage = "You have to enter at least 4 characters.")]
         [MaxLength(30, ErrorMessage = "You entered too many characters.")]
-        public string playerPosition { get; set; }
+        public string PlayerPosition { get; set; }
         
-        public int yearsPro { get; set; }
+        public int YearsPro { get; set; }
 
         [Required]
         [MinLength(5, ErrorMessage = "You have to enter at least 5 characters.")]
         [MaxLength(30, ErrorMessage = "You entered too many characters.")]
-        public string team { get; set; }
+        public string Team { get; set; }
 
-        public int numberOfVotes { get; set; }
+        public int NumberOfVotes { get; set; }
 
         [Required]
-        public DateTimeOffset createdUtc { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
 
-        public DateTimeOffset? modifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

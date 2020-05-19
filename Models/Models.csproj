@@ -54,11 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlayerCreate.cs" />
-    <Compile Include="PlayerDetail.cs" />
-    <Compile Include="PlayerEdit.cs" />
-    <Compile Include="PlayerListItem.cs" />
+    <Compile Include="PlayerClasses\PlayerCreate.cs" />
+    <Compile Include="PlayerClasses\PlayerDetail.cs" />
+    <Compile Include="PlayerClasses\PlayerEdit.cs" />
+    <Compile Include="PlayerClasses\PlayerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoteClasses\VoteCreate.cs" />
+    <Compile Include="VoteClasses\VoteEdit.cs" />
+    <Compile Include="VoteClasses\VoteListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

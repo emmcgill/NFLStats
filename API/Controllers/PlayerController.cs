@@ -12,8 +12,10 @@ using System.Web.Http;
 namespace API.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/player")]
     public class PlayerController : ApiController
     {
+        [Route("create")]
         [HttpPost]
         public IHttpActionResult Post(PlayerCreate player)
         {
@@ -28,6 +30,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Route("{Name}")]
         [HttpGet]
         public IHttpActionResult GetIndividualPlayerByName(string name)
         {
@@ -36,6 +39,7 @@ namespace API.Controllers
             return Ok(player);
         }
 
+        [Route("all")]
         [HttpGet]
         public IHttpActionResult GetAllPlayers()
         {
@@ -44,6 +48,7 @@ namespace API.Controllers
             return Ok(players);
         }
 
+        [Route("update")]
         [HttpPut]
         public IHttpActionResult Put(PlayerEdit player)
         {
@@ -58,6 +63,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Route("{name}")]
         [HttpDelete]
         public IHttpActionResult Delete(string name)
         {

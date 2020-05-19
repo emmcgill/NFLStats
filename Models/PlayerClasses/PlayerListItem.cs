@@ -8,6 +8,7 @@ namespace Models
 {
     public class PlayerListItem
     {
+        public int PlayerId { get; set; }
         public string Name { get; set; }
         public int PlayerNumber { get; set; }
         public string PlayerPosition { get; set; }

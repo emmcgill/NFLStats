@@ -35,6 +35,8 @@ namespace Data
 
         public DbSet<Player> Players { get; set; }
 
+        public DbSet<Vote> Votes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

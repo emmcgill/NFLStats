@@ -68,3 +68,8 @@ C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.csproj
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.csproj.CopyComplete
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.dll
 C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.pdb
+C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.Migrations.test.resources
+C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.csproj.GenerateResource.cache
+C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.Migrations.test514.resources
+C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.Migrations.fixedVoteController.resources
+C:\Users\alec1\source\repos\BlueBadgeProject\NFLStats\Data\obj\Debug\Data.Migrations.fixedForeignKey.resources
