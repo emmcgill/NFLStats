@@ -61,6 +61,7 @@
     <Compile Include="SeasonStats\SeasonStatService.cs" />
     <Compile Include="SeasonStats\TeSeasonStatService.cs" />
     <Compile Include="SeasonStats\WrSeasonStatService.cs" />
+    <Compile Include="VoteService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
