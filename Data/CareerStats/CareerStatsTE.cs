@@ -6,32 +6,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Data.CareerStats
 {
-    public class CareerStatsRB
+    public class CareerStatsTE
     {
         [Key]
-        public int CareerRBId { get; set; }
+        public int CareerTEId { get; set; }
 
         [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
 
         public virtual Player Player { get; set; }
 
-        
         [Required]
-        public int RushingYards { get; set; }
-        [Required]
-        public int RushingAttempts { get; set; }
-        [Required]
-        public int ReceivingYards { get; set; }
+        public int Year { get; set; }
+
         [Required]
         public int Receptions { get; set; }
+
         [Required]
-        public int RushingTouchdowns { get; set; }
+        public int Targets { get; set; }
+
         [Required]
-        public int ReceivingTouchdowns { get; set; }
+        public int Drops { get; set; }
+
         [Required]
-        public int Fumbles { get; set; }
+        public int ReceivingYards { get; set; }
+
+        [Required]
+        public int YardsAfterCatch { get; set; }
+
+        [Required]
+        public int Touchdowns { get; set; }
     }
 }

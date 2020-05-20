@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CareerStatsControllers\CareerStatsQBController.cs" />
     <Compile Include="Controllers\CareerStatsControllers\CareerStatsRBController.cs" />
+    <Compile Include="Controllers\CareerStatsControllers\CareerStatsTEController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\SeasonStatController.cs" />

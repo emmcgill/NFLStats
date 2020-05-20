@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Data.CareerStats;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -38,6 +39,7 @@ namespace Data
 
         public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
         public DbSet<CareerStatsRB> careerStatsRBs { get; set; }
+        public DbSet<CareerStatsTE> careerStatsTEs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

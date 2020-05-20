@@ -60,6 +60,9 @@
     <Compile Include="CareerStatsRB\CareerStatsRBCreate.cs" />
     <Compile Include="CareerStatsRB\CareerStatsRBDetail.cs" />
     <Compile Include="CareerStatsRB\CareerStatsRBEdit.cs" />
+    <Compile Include="CareerStatsTE\CareerStatsTECreate.cs" />
+    <Compile Include="CareerStatsTE\CareerStatsTEDetail.cs" />
+    <Compile Include="CareerStatsTE\CareerStatsTEEdit.cs" />
     <Compile Include="PlayerCreate.cs" />
     <Compile Include="PlayerDetail.cs" />
     <Compile Include="PlayerEdit.cs" />
