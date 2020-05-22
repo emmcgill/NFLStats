@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.CareerStatsQBModels
+namespace Data
 {
-    public class CareerStatsQBDetail
+    public class SeasonStat
     {
-        public int CareerQBId { get; set; }
+        [Key]
+        public int SeasonId { get; set; }
+
+        [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
-        
-        [Display(Name="Passing Yards")]
+
+        public virtual Player Player { get; set; }
+
+        [Required]
+        public int Year { get; set; }
+        [Required]
         public int PassingYards { get; set; }
-
-        [Display(Name="Rushing Yards")]
+        [Required]
         public int RushingYards { get; set; }
-        
+        [Required]
         public int Completions { get; set; }
-        
+        [Required]
         public int Attempts { get; set; }
-
-        [Display(Name="Passing Touchdowns")]
+        [Required]
         public int PassingTouchdowns { get; set; }
-
-        [Display(Name="Rushing Touchdowns")]
+        [Required]
         public int RushingTouchdowns { get; set; }
-        
+        [Required]
         public int Interceptions { get; set; }
-
     }
 }
