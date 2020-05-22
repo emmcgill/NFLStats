@@ -13,7 +13,7 @@ namespace Services
     {
         public bool CreateCareerStatsQB(CareerStatsQBCreate career)
         {
-            var entity = new CareerStatsQB()
+            var playerCareer = new CareerStatsQB()
             {
                 PlayerId = career.PlayerId,
                 PassingYards = career.PassingYards,
@@ -27,44 +27,30 @@ namespace Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.careerStatsQBs.Add(entity);
+                ctx.careerStatsQBs.Add(playerCareer);
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        public IEnumerable<CareerStatsQBListItem> GetCareerStatsQBs()
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                       .careerStatsQBs
-                       .Select(e => new CareerStatsQBListItem
-                       {
-                           PlayerId = e.PlayerId,                           
-                       });
-                return query.ToArray();
-            }
-        }
+       
 
         public CareerStatsQBDetail GetCareerStatsQBById(int careerId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var career =
                     ctx
                         .careerStatsQBs
-                        .Single(e => e.PlayerId == careerId);
+                        .Single(c => c.CareerQBId == careerId);
                 return new CareerStatsQBDetail
                 {
-                    PlayerId = entity.PlayerId,
-                    PassingYards = entity.PassingYards,
-                    RushingYards = entity.RushingYards,
-                    Completions = entity.Completions,
-                    Attempts = entity.Attempts,
-                    PassingTouchdowns = entity.PassingTouchdowns,
-                    RushingTouchdowns = entity.RushingTouchdowns,
-                    Interceptions = entity.Interceptions,
+                    PlayerId = career.PlayerId,
+                    PassingYards = career.PassingYards,
+                    RushingYards = career.RushingYards,
+                    Completions = career.Completions,
+                    Attempts = career.Attempts,
+                    PassingTouchdowns = career.PassingTouchdowns,
+                    RushingTouchdowns = career.RushingTouchdowns,
+                    Interceptions = career.Interceptions,
                 };
             }
         }
@@ -76,7 +62,7 @@ namespace Services
                 var entity =
                     ctx
                         .careerStatsQBs
-                        .Single(e => e.PlayerId == career.PlayerId);
+                        .Single(c => c.CareerQBId == career.CareerQBId);
 
                 entity.PlayerId = career.PlayerId;
                 entity.PassingYards = career.PassingYards;
@@ -91,14 +77,14 @@ namespace Services
             }
         }
 
-        public bool DeleteCareerStatsQB(int playerId)
+        public bool DeleteCareerStatsQB(int career)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .careerStatsQBs
-                        .Single(e => e.PlayerId == playerId);
+                        .Single(c => c.CareerQBId == career);
 
                 ctx.careerStatsQBs.Remove(entity);
 

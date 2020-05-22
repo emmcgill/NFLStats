@@ -8,6 +8,7 @@ namespace Models.CareerStatsQBModels
 {
     public class CareerStatsQBEdit
     {
+        public int CareerQBId { get; set; }
         public int PlayerId { get; set; }
         public int PassingYards { get; set; }
         public int RushingYards { get; set; }
