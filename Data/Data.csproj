@@ -87,6 +87,7 @@
     <Compile Include="CareerStats\CareerStatsQB.cs" />
     <Compile Include="CareerStats\CareerStatsRB.cs" />
     <Compile Include="CareerStats\CareerStatsTE.cs" />
+    <Compile Include="CareerStats\CareerStatsWR.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202005122355447_test.cs" />
     <Compile Include="Migrations\202005122355447_test.Designer.cs">
