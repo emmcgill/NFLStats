@@ -211,6 +211,7 @@
     <Compile Include="Controllers\CareerStatsControllers\CareerStatsTEController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\RankController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\RbSeasonStatController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\SeasonStatController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\TeSeasonStatController.cs" />
