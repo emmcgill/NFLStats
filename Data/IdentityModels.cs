@@ -48,6 +48,8 @@ namespace Data
 
         public DbSet<Vote> Votes { get; set; }
 
+        public DbSet<Rank> Rankings { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
