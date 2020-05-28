@@ -9,8 +9,12 @@ using System.Web.Http;
 
 namespace API.Controllers.SeasonStatControllers
 {
+    [Authorize]
+    [RoutePrefix("api/teseason")]
     public class TeSeasonStatController : ApiController
     {
+
+        [Route("create")]
         [HttpPost]
         public IHttpActionResult Post(TeSeasonStatCreate season)
         {
@@ -25,6 +29,7 @@ namespace API.Controllers.SeasonStatControllers
             return Ok();
         }
 
+        [Route("season/{seasonId}")]
         [HttpGet]
         public IHttpActionResult GetTeSeasonById(int seasonId)
         {
@@ -33,6 +38,17 @@ namespace API.Controllers.SeasonStatControllers
             return Ok(season);
         }
 
+        [Route("allseasons/{playerId}")]
+        [HttpGet]
+        public IHttpActionResult GetAllTeSeasons(int playerId)
+        {
+            TeSeasonStatService seasonService = new TeSeasonStatService();
+            var seasons = seasonService.GetTeSeasonsByPlayerId(playerId);
+            return Ok(seasons);
+        }
+
+
+        [Route("updateseason")]
         [HttpPut]
         public IHttpActionResult Put(TeSeasonStatEdit season)
         {
@@ -47,6 +63,7 @@ namespace API.Controllers.SeasonStatControllers
             return Ok();
         }
 
+        [Route("deleteseason/{seasonId}")]
         [HttpDelete]
         public IHttpActionResult Delete(int seasonId)
         {

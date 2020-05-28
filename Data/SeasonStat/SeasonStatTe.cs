@@ -6,12 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data
+namespace Data.SeasonStats
 {
-    public class SeasonStat
+    public class SeasonStatTe
     {
         [Key]
-        public int SeasonId { get; set; }
+        public int TeSeasonId { get; set; }
 
         [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
@@ -20,19 +20,25 @@ namespace Data
 
         [Required]
         public int Year { get; set; }
+
         [Required]
-        public int PassingYards { get; set; }
+        public int Receptions { get; set; }
+
         [Required]
-        public int RushingYards { get; set; }
+        public int Targets { get; set; }
+
         [Required]
-        public int Completions { get; set; }
+        public int Drops { get; set; }
+
         [Required]
-        public int Attempts { get; set; }
+        public int ReceivingYards { get; set; }
+
         [Required]
-        public int PassingTouchdowns { get; set; }
+        public int YardsAfterCatch { get; set; }
+
         [Required]
-        public int RushingTouchdowns { get; set; }
-        [Required]
-        public int Interceptions { get; set; }
+        public int Touchdowns { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

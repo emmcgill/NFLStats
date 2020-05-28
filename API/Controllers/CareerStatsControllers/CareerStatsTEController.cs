@@ -9,8 +9,10 @@ using System.Web.Http;
 namespace API.Controllers.CareerStatsControllers
 {
     [Authorize]
+    [RoutePrefix("api/CareerStatsTE")]
     public class CareerStatsTEController : ApiController
     {
+        [Route("create")]
         [HttpPost]
         public IHttpActionResult Post(CareerStatsTECreate career)
         {
@@ -25,6 +27,7 @@ namespace API.Controllers.CareerStatsControllers
             return Ok();
         }
 
+        [Route("{careerId}")]
         [HttpGet]
         public IHttpActionResult GetCareerStatsTEById(int careerId)
         {
@@ -33,6 +36,7 @@ namespace API.Controllers.CareerStatsControllers
             return Ok(career);
         }
 
+        [Route("update")]
         [HttpPut]
         public IHttpActionResult Put(CareerStatsTEEdit careerStatsTE)
         {
@@ -47,6 +51,7 @@ namespace API.Controllers.CareerStatsControllers
             return Ok();
         }
 
+        [Route("{careerId}")]
         [HttpDelete]
         public IHttpActionResult Delete(int careerId)
         {

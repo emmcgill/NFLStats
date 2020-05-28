@@ -44,9 +44,12 @@ namespace Data
         public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
         public DbSet<CareerStatsRB> careerStatsRBs { get; set; }
         public DbSet<CareerStatsTE> careerStatsTEs { get; set; }
+        public DbSet<CareerStatsWR> careerStatsWRs { get; set; }
 
 
         public DbSet<Vote> Votes { get; set; }
+
+        public DbSet<Rank> Rankings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

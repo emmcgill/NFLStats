@@ -35,6 +35,7 @@ namespace Data
         public int ReceivingTouchdowns { get; set; }
         [Required]
         public int Fumbles { get; set; }
+        public bool IsDeleted { get; set; }
 
     }
 }

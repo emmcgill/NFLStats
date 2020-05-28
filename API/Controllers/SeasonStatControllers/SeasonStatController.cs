@@ -10,8 +10,10 @@ using System.Web.Http;
 namespace API.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/qbseason")]
     public class SeasonStatController : ApiController
     {
+        [Route("create")]
         [HttpPost]
         public IHttpActionResult Post(SeasonStatCreate season)
         {
@@ -26,6 +28,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Route("season/{seasonId}")]
         [HttpGet]
         public IHttpActionResult GetSeasonById(int seasonId)
         {
@@ -34,6 +37,16 @@ namespace API.Controllers
             return Ok(season);
         }
 
+        [Route("allseasons/{playerId}")]
+        [HttpGet]
+        public IHttpActionResult GetAllQbSeasons(int playerId)
+        {
+            SeasonStatService seasonService = new SeasonStatService();
+            var seasons = seasonService.GetQbSeasonsByPlayerId(playerId);
+            return Ok(seasons);
+        }
+
+        [Route("updateseason")]
         [HttpPut]
         public IHttpActionResult Put(SeasonStatEdit season)
         {
@@ -48,6 +61,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Route("deleteseason/{seasonId}")]
         [HttpDelete]
         public IHttpActionResult Delete(int seasonId)
         {

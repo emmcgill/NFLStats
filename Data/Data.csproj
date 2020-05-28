@@ -87,6 +87,7 @@
     <Compile Include="CareerStats\CareerStatsQB.cs" />
     <Compile Include="CareerStats\CareerStatsRB.cs" />
     <Compile Include="CareerStats\CareerStatsTE.cs" />
+    <Compile Include="CareerStats\CareerStatsWR.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202005122355447_test.cs" />
     <Compile Include="Migrations\202005122355447_test.Designer.cs">
@@ -111,10 +112,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeasonStat.cs" />
-    <Compile Include="SeasonStatRb.cs" />
-    <Compile Include="SeasonStatTe.cs" />
-    <Compile Include="SeasonStatWr.cs" />
+    <Compile Include="Rank.cs" />
+    <Compile Include="SeasonStat\SeasonStat.cs" />
+    <Compile Include="SeasonStat\SeasonStatRb.cs" />
+    <Compile Include="SeasonStat\SeasonStatTe.cs" />
+    <Compile Include="SeasonStat\SeasonStatWr.cs" />
     <Compile Include="Vote.cs" />
   </ItemGroup>
   <ItemGroup>
