@@ -43,7 +43,7 @@ namespace Services
                 var season =
                     ctx
                         .RbSeasonStats
-                        .Single(s => s.RbSeasonId == seasonId);
+                        .Single(s => s.RbSeasonId == seasonId && s.IsDeleted == false);
                 return
                     new RbSeasonStatDetail()
                     {
@@ -60,6 +60,37 @@ namespace Services
             }
         }
 
+
+        //GET ALL PLAYER SEASONS
+        public IEnumerable<RbSeasonStatListItem> GetRbSeasonsByPlayerId(int playerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .RbSeasonStats
+                        .Where(s => s.PlayerId == playerId && s.IsDeleted == false)
+                        .Select(
+                        s =>
+
+                    new RbSeasonStatListItem
+                    {
+                        Year = s.Year,
+                        RushingYards = s.RushingYards,
+                        RushingAttempts = s.RushingAttempts,
+                        ReceivingYards = s.ReceivingYards,
+                        Receptions = s.Receptions,
+                        RushingTouchdowns = s.RushingTouchdowns,
+                        ReceivingTouchdowns = s.ReceivingTouchdowns,
+                        Fumbles = s.Fumbles
+
+                    }
+
+                    );
+                return query.ToArray();
+            }
+        }
+
         //UPDATE
         public bool UpdateRbSeasonStats(RbSeasonStatEdit season)
         {
@@ -68,7 +99,7 @@ namespace Services
                 var entity =
                     ctx
                         .RbSeasonStats
-                        .Single(s => s.RbSeasonId == season.RbSeasonId);
+                        .Single(s => s.RbSeasonId == season.RbSeasonId && s.IsDeleted == false);
 
                 entity.PlayerId = season.PlayerId;
                 entity.Year = season.Year;
@@ -87,17 +118,19 @@ namespace Services
         }
 
         //DELETE
-        public bool DeleteRbSeasonStat(int season)
+        public bool DeleteRbSeasonStat(int seasonId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .RbSeasonStats
-                        .Single(s => s.RbSeasonId == season);
+                        .Single(s => s.RbSeasonId == seasonId);
 
-                ctx.RbSeasonStats.Remove(entity);
-
+                if (!entity.IsDeleted)
+                {
+                    entity.IsDeleted = true;
+                }
                 return ctx.SaveChanges() == 1;
             }
         }

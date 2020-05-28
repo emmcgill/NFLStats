@@ -42,7 +42,7 @@ namespace Services
                 var season =
                     ctx
                         .TeSeasonStats
-                        .Single(s => s.TeSeasonId == seasonId);
+                        .Single(s => s.TeSeasonId == seasonId && s.IsDeleted == false);
                 return
                     new TeSeasonStatDetail()
                     {
@@ -53,8 +53,36 @@ namespace Services
                         Drops = season.Drops,
                         ReceivingYards = season.ReceivingYards,
                         YardsAfterCatch = season.YardsAfterCatch,
-                        Touchdowns = season.Touchdowns 
+                        Touchdowns = season.Touchdowns
                     };
+            }
+        }
+
+        //GET ALL PLAYER SEASONS
+        public IEnumerable<TeSeasonStatListItem> GetTeSeasonsByPlayerId(int playerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .TeSeasonStats
+                        .Where(s => s.PlayerId == playerId && s.IsDeleted == false)
+                        .Select(
+                        s =>
+
+                    new TeSeasonStatListItem
+                    {
+                        Year = s.Year,
+                        Receptions = s.Receptions,
+                        Targets = s.Targets,
+                        Drops = s.Drops,
+                        ReceivingYards = s.ReceivingYards,
+                        YardsAfterCatch = s.YardsAfterCatch,
+                        Touchdowns = s.Touchdowns
+                    }
+
+                    );
+                return query.ToArray();
             }
         }
 
@@ -66,7 +94,7 @@ namespace Services
                 var entity =
                     ctx
                         .TeSeasonStats
-                        .Single(s => s.TeSeasonId == season.TeSeasonId);
+                        .Single(s => s.TeSeasonId == season.TeSeasonId && s.IsDeleted == false);
 
                 entity.PlayerId = season.PlayerId;
                 entity.Year = season.Year;
@@ -82,17 +110,19 @@ namespace Services
         }
 
         //DELETE
-        public bool DeleteTeSeasonStat(int season)
+        public bool DeleteTeSeasonStat(int seasonId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .TeSeasonStats
-                        .Single(s => s.TeSeasonId == season);
+                        .Single(s => s.TeSeasonId == seasonId);
 
-                ctx.TeSeasonStats.Remove(entity);
-
+                if (!entity.IsDeleted)
+                {
+                    entity.IsDeleted = true;
+                }
                 return ctx.SaveChanges() == 1;
             }
         }
