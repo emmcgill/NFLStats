@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class SeasonStatRb
+    public class SeasonStat
     {
         [Key]
-        public int RbSeasonId { get; set; }
+        public int SeasonId { get; set; }
 
         [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
@@ -20,21 +20,20 @@ namespace Data
 
         [Required]
         public int Year { get; set; }
-
+        [Required]
+        public int PassingYards { get; set; }
         [Required]
         public int RushingYards { get; set; }
         [Required]
-        public int RushingAttempts { get; set; }
+        public int Completions { get; set; }
         [Required]
-        public int ReceivingYards { get; set; }
+        public int Attempts { get; set; }
         [Required]
-        public int Receptions { get; set; }
+        public int PassingTouchdowns { get; set; }
         [Required]
         public int RushingTouchdowns { get; set; }
         [Required]
-        public int ReceivingTouchdowns { get; set; }
-        [Required]
-        public int Fumbles { get; set; }
-
+        public int Interceptions { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

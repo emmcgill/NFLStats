@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Data.SeasonStats
 {
-    public class SeasonStatTe
+    public class SeasonStatWr
     {
         [Key]
-        public int TeSeasonId { get; set; }
+        public int WrSeasonId { get; set; }
 
         [ForeignKey(nameof(Player))]
         public int PlayerId { get; set; }
@@ -38,5 +38,7 @@ namespace Data.SeasonStats
 
         [Required]
         public int Touchdowns { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }

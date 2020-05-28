@@ -1,5 +1,6 @@
 ﻿using Data;
 using Models;
+using Models.SeasonStatsQB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace Services
         {
             var playerSeason = new SeasonStat()
             {
-               
+
                 PlayerId = season.PlayerId,
                 Year = season.Year,
                 PassingYards = season.PassingYards,
@@ -41,7 +42,7 @@ namespace Services
                 var season =
                     ctx
                         .SeasonStats
-                        .Single(s => s.SeasonId == seasonId);
+                        .Single(s => s.SeasonId == seasonId && s.IsDeleted == false);
                 return
                     new SeasonStatDetail()
                     {
@@ -58,6 +59,36 @@ namespace Services
             }
         }
 
+        //GET ALL PLAYER SEASONS
+        public IEnumerable<SeasonStatListItem> GetQbSeasonsByPlayerId(int playerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .SeasonStats
+                        .Where(s => s.PlayerId == playerId && s.IsDeleted == false)
+                        .Select(
+                        s =>
+
+                    new SeasonStatListItem
+                    {
+                        Year = s.Year,
+                        PassingYards = s.PassingYards,
+                        RushingYards = s.RushingYards,
+                        Completions = s.Completions,
+                        Attempts = s.Attempts,
+                        PassingTouchdowns = s.PassingTouchdowns,
+                        RushingTouchdowns = s.RushingTouchdowns,
+                        Interceptions = s.Interceptions
+
+                    }
+
+                    );
+                return query.ToArray();
+            }
+        }
+
         //UPDATE
         public bool UpdateSeasonStats(SeasonStatEdit season)
         {
@@ -66,7 +97,7 @@ namespace Services
                 var entity =
                     ctx
                         .SeasonStats
-                        .Single(s => s.SeasonId == season.SeasonId);
+                        .Single(s => s.SeasonId == season.SeasonId && s.IsDeleted == false);
 
                 entity.PlayerId = season.PlayerId;
                 entity.Year = season.Year;
@@ -77,24 +108,26 @@ namespace Services
                 entity.PassingTouchdowns = season.PassingTouchdowns;
                 entity.RushingTouchdowns = season.RushingTouchdowns;
                 entity.Interceptions = season.Interceptions;
-  
+
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
         //DELETE
-        public bool DeleteSeasonStat(int season)
+        public bool DeleteSeasonStat(int seasonId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .SeasonStats
-                        .Single(s => s.SeasonId == season );
+                        .Single(s => s.SeasonId == seasonId);
 
-                ctx.SeasonStats.Remove(entity);
-
+                if (!entity.IsDeleted)
+                {
+                    entity.IsDeleted = true;
+                }
                 return ctx.SaveChanges() == 1;
             }
         }

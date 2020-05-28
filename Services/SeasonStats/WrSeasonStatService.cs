@@ -42,7 +42,7 @@ namespace Services
                 var season =
                     ctx
                         .WrSeasonStats
-                        .Single(s => s.WrSeasonId == seasonId);
+                        .Single(s => s.WrSeasonId == seasonId && s.IsDeleted == false);
                 return
                     new WrSeasonStatDetail()
                     {
@@ -58,6 +58,34 @@ namespace Services
             }
         }
 
+        //GET ALL PLAYER SEASONS
+        public IEnumerable<WrSeasonStatListItem> GetWrSeasonsByPlayerId(int playerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .WrSeasonStats
+                        .Where(s => s.PlayerId == playerId && s.IsDeleted == false)
+                        .Select(
+                        s =>
+
+                    new WrSeasonStatListItem
+                    {
+                        Year = s.Year,
+                        Receptions = s.Receptions,
+                        Targets = s.Targets,
+                        Drops = s.Drops,
+                        ReceivingYards = s.ReceivingYards,
+                        YardsAfterCatch = s.YardsAfterCatch,
+                        Touchdowns = s.Touchdowns
+                    }
+
+                    );
+                return query.ToArray();
+            }
+        }
+
         //UPDATE
         public bool UpdateWrSeasonStats(WrSeasonStatEdit season)
         {
@@ -66,7 +94,7 @@ namespace Services
                 var entity =
                     ctx
                         .WrSeasonStats
-                        .Single(s => s.WrSeasonId == season.WrSeasonId);
+                        .Single(s => s.WrSeasonId == season.WrSeasonId && s.IsDeleted == false);
 
                 entity.PlayerId = season.PlayerId;
                 entity.Year = season.Year;
@@ -82,17 +110,19 @@ namespace Services
         }
 
         //DELETE
-        public bool DeleteWrSeasonStat(int season)
+        public bool DeleteWrSeasonStat(int seasonId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .WrSeasonStats
-                        .Single(s => s.WrSeasonId == season);
+                        .Single(s => s.WrSeasonId == seasonId);
 
-                ctx.WrSeasonStats.Remove(entity);
-
+                if (!entity.IsDeleted)
+                {
+                    entity.IsDeleted = true;
+                }
                 return ctx.SaveChanges() == 1;
             }
         }
