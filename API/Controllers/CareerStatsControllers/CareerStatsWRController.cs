@@ -1,28 +1,27 @@
-﻿using Models.CareerStatsRB;
+﻿using Models.CareerStatsWR;
 using Services.CareerStats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Web;
 using System.Web.Http;
 
 namespace API.Controllers.CareerStatsControllers
 {
     [Authorize]
-    [RoutePrefix("api/CareerStatsRB")]
-    public class CareerStatsRBController : ApiController
+    [RoutePrefix("api/CareerStatsWR")]
+    public class CareerStatsWRController : ApiController
     {
         [Route("create")]
         [HttpPost]
-        public IHttpActionResult Post(CareerStatsRBCreate career)
+        public IHttpActionResult Post(CareerStatsWRCreate career)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            CareerStatsRBService service = new CareerStatsRBService();
+            CareerStatsWRService service = new CareerStatsWRService();
 
-            if (!service.CreateCareerStatsRB(career))
+            if (!service.CreateCareerStatsWR(career))
                 return InternalServerError();
 
             return Ok();
@@ -30,23 +29,23 @@ namespace API.Controllers.CareerStatsControllers
 
         [Route("{careerId}")]
         [HttpGet]
-        public IHttpActionResult GetCareerStatsRBById(int careerId)
+        public IHttpActionResult GetCareerStatsWRById(int careerId)
         {
-            CareerStatsRBService careerService = new CareerStatsRBService();
-            var career = careerService.GetCareerStatsRBById(careerId);
+            CareerStatsWRService careerService = new CareerStatsWRService();
+            var career = careerService.GetCareerStatsWRById(careerId);
             return Ok(career);
         }
 
         [Route("update")]
         [HttpPut]
-        public IHttpActionResult Put(CareerStatsRBEdit careerStatsRB)
+        public IHttpActionResult Put(CareerStatsWREdit careerStatsWR)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            CareerStatsRBService service = new CareerStatsRBService();
+            CareerStatsWRService service = new CareerStatsWRService();
 
-            if (!service.UpdateCareerStatsRB(careerStatsRB))
+            if (!service.UpdateCareerStatsWR(careerStatsWR))
                 return InternalServerError();
 
             return Ok();
@@ -56,9 +55,9 @@ namespace API.Controllers.CareerStatsControllers
         [HttpDelete]
         public IHttpActionResult Delete(int careerId)
         {
-            CareerStatsRBService service = new CareerStatsRBService();
+            CareerStatsWRService service = new CareerStatsWRService();
 
-            if (!service.DeleteCareerStatsRB(careerId))
+            if (!service.DeleteCareerStatsWR(careerId))
                 return InternalServerError();
 
             return Ok();

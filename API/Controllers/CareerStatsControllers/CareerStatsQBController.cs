@@ -10,8 +10,10 @@ using System.Web.Http;
 namespace API.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/CareerStatsQB")]
     public class CareerStatsQBController : ApiController
     {
+        [Route("create")]
         [HttpPost]
         public IHttpActionResult Post(CareerStatsQBCreate career)
         {
@@ -26,6 +28,7 @@ namespace API.Controllers
             return Ok();
         }
         
+        [Route("{careerId}")]
         [HttpGet]
         public IHttpActionResult GetCareerStatsQBById(int careerId)
         {
@@ -34,6 +37,7 @@ namespace API.Controllers
             return Ok(career);
         }
 
+        [Route("update")]
         [HttpPut]
         public IHttpActionResult Put(CareerStatsQBEdit careerStatsQB)
         {
@@ -48,6 +52,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Route("{careerId}")]
         [HttpDelete]
         public IHttpActionResult Delete(int careerId)
         {
