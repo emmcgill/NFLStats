@@ -49,6 +49,15 @@ namespace API.Controllers
             return Ok(votes);
         }
 
+        [Route("rankings")]
+        [HttpGet]
+        public IHttpActionResult GetRankingsByVotes()
+        {
+            VoteService voteService = new VoteService();
+            var rankings = voteService.GetRankings();
+            return Ok(rankings);
+        }
+
         [Route("delete")]
         [HttpPut]
         public IHttpActionResult DeleteVote(VoteEdit vote)
