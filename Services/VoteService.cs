@@ -71,6 +71,28 @@ namespace Services
             }
         }
 
+        public IEnumerable<RankListItem> GetRankings()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Votes
+                        .Where(r => r.)
+                        .OrderByDescending(r => r.TotalVotes)
+                        .Select(
+                            r => new RankListItem
+                            {
+                                PlayerId = r.PlayerId,
+                                Name = r.Name,
+                                TotalVotes = r.TotalVotes
+                            }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public bool DeleteVoteById(VoteEdit vote)
         {
             using(var ctx = new ApplicationDbContext())
