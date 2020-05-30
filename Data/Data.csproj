@@ -89,25 +89,9 @@
     <Compile Include="CareerStats\CareerStatsTE.cs" />
     <Compile Include="CareerStats\CareerStatsWR.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202005122355447_test.cs" />
-    <Compile Include="Migrations\202005122355447_test.Designer.cs">
-      <DependentUpon>202005122355447_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005150028517_test514.cs" />
-    <Compile Include="Migrations\202005150028517_test514.Designer.cs">
-      <DependentUpon>202005150028517_test514.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005161444260_fixedVoteController.cs" />
-    <Compile Include="Migrations\202005161444260_fixedVoteController.Designer.cs">
-      <DependentUpon>202005161444260_fixedVoteController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005190023582_fixedForeignKey.cs" />
-    <Compile Include="Migrations\202005190023582_fixedForeignKey.Designer.cs">
-      <DependentUpon>202005190023582_fixedForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005220109267_mergetest.cs" />
-    <Compile Include="Migrations\202005220109267_mergetest.Designer.cs">
-      <DependentUpon>202005220109267_mergetest.cs</DependentUpon>
+    <Compile Include="Migrations\202005301419002_initial.cs" />
+    <Compile Include="Migrations\202005301419002_initial.Designer.cs">
+      <DependentUpon>202005301419002_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
@@ -123,20 +107,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005122355447_test.resx">
-      <DependentUpon>202005122355447_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005150028517_test514.resx">
-      <DependentUpon>202005150028517_test514.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005161444260_fixedVoteController.resx">
-      <DependentUpon>202005161444260_fixedVoteController.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005190023582_fixedForeignKey.resx">
-      <DependentUpon>202005190023582_fixedForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005220109267_mergetest.resx">
-      <DependentUpon>202005220109267_mergetest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005301419002_initial.resx">
+      <DependentUpon>202005301419002_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
