@@ -1,8 +1,10 @@
 ﻿using Data;
 using Models;
 using Models.CareerStatsQBModels;
+using Models.SeasonStatsQB;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,31 +29,33 @@ namespace Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.careerStatsQBs.Add(playerCareer);
+                ctx.CareerStatsQBs.Add(playerCareer);
                 return ctx.SaveChanges() == 1;
             }
         }
-       
 
-        public CareerStatsQBDetail GetCareerStatsQBById(int careerId)
+        public IEnumerable<CareerStatsQBDetail> GetCareerStatTotals()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var career =
+                var query =
                     ctx
-                        .careerStatsQBs
-                        .Single(c => c.CareerQBId == careerId);
-                return new CareerStatsQBDetail
-                {
-                    PlayerId = career.PlayerId,
-                    PassingYards = career.PassingYards,
-                    RushingYards = career.RushingYards,
-                    Completions = career.Completions,
-                    Attempts = career.Attempts,
-                    PassingTouchdowns = career.PassingTouchdowns,
-                    RushingTouchdowns = career.RushingTouchdowns,
-                    Interceptions = career.Interceptions,
-                };
+                        .Players
+                        .Select(
+                            p => new CareerStatsQBDetail
+                            {
+                                PlayerId = p.PlayerId,
+                                PassingYards = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.PassingYards),
+                                RushingYards = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingYards),
+                                Completions = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Completions),
+                                Attempts = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Attempts),
+                                PassingTouchdowns = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.PassingTouchdowns),
+                                RushingTouchdowns = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingTouchdowns),
+                                Interceptions = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Interceptions)
+                            }
+                        );
+
+                return query.ToArray();
             }
         }
 
@@ -61,7 +65,7 @@ namespace Services
             {
                 var entity =
                     ctx
-                        .careerStatsQBs
+                        .CareerStatsQBs
                         .Single(c => c.CareerQBId == career.CareerQBId);
 
                 entity.PlayerId = career.PlayerId;
@@ -83,13 +87,13 @@ namespace Services
             {
                 var entity =
                     ctx
-                        .careerStatsQBs
+                        .CareerStatsQBs
                         .Single(c => c.CareerQBId == career);
 
-                ctx.careerStatsQBs.Remove(entity);
+                ctx.CareerStatsQBs.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
-        }
+        }               
     }
 }

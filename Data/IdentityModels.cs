@@ -36,15 +36,15 @@ namespace Data
         }
 
         public DbSet<Player> Players { get; set; }
-        public DbSet<SeasonStat> SeasonStats { get; set; }
+        public DbSet<SeasonStat> SeasonStat { get; set; }
         public DbSet<SeasonStatRb> RbSeasonStats { get; set; }
         public DbSet<SeasonStatWr> WrSeasonStats { get; set; }
         public DbSet<SeasonStatTe> TeSeasonStats { get; set; }
 
-        public DbSet<CareerStatsQB> careerStatsQBs { get; set; }
-        public DbSet<CareerStatsRB> careerStatsRBs { get; set; }
-        public DbSet<CareerStatsTE> careerStatsTEs { get; set; }
-        public DbSet<CareerStatsWR> careerStatsWRs { get; set; }
+        public DbSet<CareerStatsQB> CareerStatsQBs { get; set; }
+        public DbSet<CareerStatsRB> CareerStatsRBs { get; set; }
+        public DbSet<CareerStatsTE> CareerStatsTEs { get; set; }
+        public DbSet<CareerStatsWR> CareerStatsWRs { get; set; }
 
 
         public DbSet<Vote> Votes { get; set; }
