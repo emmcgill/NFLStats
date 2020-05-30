@@ -112,7 +112,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rank.cs" />
     <Compile Include="SeasonStat\SeasonStat.cs" />
     <Compile Include="SeasonStat\SeasonStatRb.cs" />
     <Compile Include="SeasonStat\SeasonStatTe.cs" />

@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -212,7 +213,6 @@
     <Compile Include="Controllers\CareerStatsControllers\CareerStatsWRController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
-    <Compile Include="Controllers\RankController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\RbSeasonStatController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\SeasonStatController.cs" />
     <Compile Include="Controllers\SeasonStatControllers\TeSeasonStatController.cs" />

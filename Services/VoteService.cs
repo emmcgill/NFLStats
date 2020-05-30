@@ -60,7 +60,7 @@ namespace Services
                     ctx
                         .Votes
                         .Where(vote => vote.PlayerId == playerId && !vote.IsDeleted)
-                        .Select                   
+                        .Select
                         (p => new VoteListItem
                         {
                             VoteId = p.VoteId,
@@ -70,6 +70,8 @@ namespace Services
                 return query.ToArray();
             }
         }
+
+        
 
         public bool DeleteVoteById(VoteEdit vote)
         {

@@ -48,6 +48,15 @@ namespace API.Controllers
             return Ok(players);
         }
 
+        [Route("rankings")]
+        [HttpGet]
+        public IHttpActionResult GetRankingsByVotes()
+        {
+            PlayerService playerService = new PlayerService();
+            var rankings = playerService.GetPlayerByRankings();
+            return Ok(rankings);
+        }
+
         [Route("update")]
         [HttpPut]
         public IHttpActionResult Put(PlayerEdit player)
