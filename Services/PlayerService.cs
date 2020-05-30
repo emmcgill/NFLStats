@@ -69,6 +69,27 @@ namespace Services
             }
         }
 
+        public IEnumerable<PlayerListItem> GetPlayerByRankings()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Players
+                        .OrderByDescending(p => p.TotalVotes)
+                        .Select(
+                            p => new PlayerListItem
+                            {
+                                PlayerId = p.PlayerId,
+                                Name = p.Name,
+                                TotalVotes = ctx.Votes.Where(v => v.PlayerId == p.PlayerId).Count()
+                            }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public bool UpdatePlayer(PlayerEdit player)
         {
             using (var ctx = new ApplicationDbContext())
