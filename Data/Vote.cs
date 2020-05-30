@@ -27,7 +27,7 @@ namespace Data
 
         public bool IsDeleted { get; set; }
 
-        public int TotalVotes { get; set; }
+        //public int TotalVotes { get; set; }
 
         public string Name { get; set; }
     }
