@@ -26,30 +26,33 @@ namespace Services.CareerStats
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.careerStatsRBs.Add(playerCareer);
+                ctx.CareerStatsRBs.Add(playerCareer);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public CareerStatsRBDetail GetCareerStatsRBById(int careerId)
+        public IEnumerable<CareerStatsRBDetail> GetCareerStatTotals()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var career =
+                var query =
                     ctx
-                        .careerStatsRBs
-                        .Single(c => c.CareerRBId == careerId);
-                return new CareerStatsRBDetail
-                {
-                    PlayerId = career.PlayerId,
-                    RushingYards = career.RushingYards,
-                    RushingAttempts = career.RushingAttempts,
-                    ReceivingYards = career.ReceivingYards,
-                    Receptions = career.Receptions,
-                    RushingTouchdowns = career.RushingTouchdowns,
-                    ReceivingTouchdowns = career.ReceivingTouchdowns,
-                    Fumbles = career.Fumbles,
-                };
+                        .Players
+                        .Select(
+                            p => new CareerStatsRBDetail
+                            {
+                                PlayerId = p.PlayerId,
+                                RushingYards = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingYards),
+                                RushingAttempts = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingAttempts),
+                                ReceivingYards = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.ReceivingYards),
+                                Receptions = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Receptions),
+                                RushingTouchdowns = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingTouchdowns),
+                                ReceivingTouchdowns = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.ReceivingTouchdowns),
+                                Fumbles = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Fumbles)
+                            }
+                        );
+
+                return query.ToArray();
             }
         }
 
@@ -59,7 +62,7 @@ namespace Services.CareerStats
             {
                 var entity =
                     ctx
-                        .careerStatsRBs
+                        .CareerStatsRBs
                         .Single(c => c.CareerRBId == career.CareerRBId);
 
                 entity.PlayerId = career.PlayerId;
@@ -81,10 +84,10 @@ namespace Services.CareerStats
             {
                 var entity =
                     ctx
-                        .careerStatsRBs
+                        .CareerStatsRBs
                         .Single(c => c.CareerRBId == career);
 
-                ctx.careerStatsRBs.Remove(entity);
+                ctx.CareerStatsRBs.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

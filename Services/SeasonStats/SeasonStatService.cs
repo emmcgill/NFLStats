@@ -29,7 +29,7 @@ namespace Services
             };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.SeasonStats.Add(playerSeason);
+                ctx.SeasonStat.Add(playerSeason);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -41,7 +41,7 @@ namespace Services
             {
                 var season =
                     ctx
-                        .SeasonStats
+                        .SeasonStat
                         .Single(s => s.SeasonId == seasonId && s.IsDeleted == false);
                 return
                     new SeasonStatDetail()
@@ -66,7 +66,7 @@ namespace Services
             {
                 var query =
                     ctx
-                        .SeasonStats
+                        .SeasonStat
                         .Where(s => s.PlayerId == playerId && s.IsDeleted == false)
                         .Select(
                         s =>
@@ -96,7 +96,7 @@ namespace Services
             {
                 var entity =
                     ctx
-                        .SeasonStats
+                        .SeasonStat
                         .Single(s => s.SeasonId == season.SeasonId && s.IsDeleted == false);
 
                 entity.PlayerId = season.PlayerId;
@@ -121,7 +121,7 @@ namespace Services
             {
                 var entity =
                     ctx
-                        .SeasonStats
+                        .SeasonStat
                         .Single(s => s.SeasonId == seasonId);
 
                 if (!entity.IsDeleted)
