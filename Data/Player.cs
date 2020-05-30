@@ -32,7 +32,7 @@ namespace Data
         [MaxLength(30, ErrorMessage = "You entered too many characters.")]
         public string Team { get; set; }
 
-        public int NumberOfVotes { get; set; }
+        public int TotalVotes { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }

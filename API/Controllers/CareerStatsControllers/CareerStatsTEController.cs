@@ -27,12 +27,11 @@ namespace API.Controllers.CareerStatsControllers
             return Ok();
         }
 
-        [Route("{careerId}")]
         [HttpGet]
-        public IHttpActionResult GetCareerStatsTEById(int careerId)
+        public IHttpActionResult GetCareerStatTotals()
         {
             CareerStatsTEService careerService = new CareerStatsTEService();
-            var career = careerService.GetCareerStatsTEById(careerId);
+            var career = careerService.GetCareerStatTotals();
             return Ok(career);
         }
 

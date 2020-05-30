@@ -18,7 +18,7 @@ namespace Data
         [ForeignKey("Player")]
         public int PlayerId { get; set; }
 
-        public Player Player { get; set; }
+        public virtual Player Player { get; set; }
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
@@ -27,5 +27,8 @@ namespace Data
 
         public bool IsDeleted { get; set; }
 
+        //public int TotalVotes { get; set; }
+
+        public string Name { get; set; }
     }
 }
