@@ -3,13 +3,25 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Services
 {
     public class PlayerService
-    { 
+    {
+        private readonly int _totalVotes;
+        public PlayerService(int totalVotes)
+        {
+            _totalVotes = totalVotes;
+        }
+
+        public PlayerService()
+        {
+
+        }
+
         public bool CreatePlayer(PlayerCreate player)
         {
             var entity = new Player()
@@ -76,15 +88,15 @@ namespace Services
                 var query =
                     ctx
                         .Players
-                        .OrderByDescending(p => p.TotalVotes)
                         .Select(
                             p => new PlayerListItem
                             {
                                 PlayerId = p.PlayerId,
                                 Name = p.Name,
                                 TotalVotes = ctx.Votes.Where(v => v.PlayerId == p.PlayerId).Count()
-                            }
-                        );
+                            })
+                        .OrderByDescending(p => p.TotalVotes);
+                
 
                 return query.ToArray();
             }
