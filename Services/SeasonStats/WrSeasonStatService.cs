@@ -24,8 +24,9 @@ namespace Services
                 Drops = season.Drops,
                 ReceivingYards = season.ReceivingYards,
                 YardsAfterCatch = season.YardsAfterCatch,
-                Touchdowns = season.Touchdowns
-
+                Touchdowns = season.Touchdowns,
+                PlayerNumber = season.PlayerNumber,
+                Team = season.Team
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -53,7 +54,9 @@ namespace Services
                         Drops = season.Drops,
                         ReceivingYards = season.ReceivingYards,
                         YardsAfterCatch = season.YardsAfterCatch,
-                        Touchdowns = season.Touchdowns
+                        Touchdowns = season.Touchdowns,
+                        PlayerNumber = season.PlayerNumber,
+                        Team = season.Team
                     };
             }
         }
@@ -78,7 +81,9 @@ namespace Services
                         Drops = s.Drops,
                         ReceivingYards = s.ReceivingYards,
                         YardsAfterCatch = s.YardsAfterCatch,
-                        Touchdowns = s.Touchdowns
+                        Touchdowns = s.Touchdowns,
+                        PlayerNumber = s.PlayerNumber,
+                        Team = s.Team
                     }
 
                     );
@@ -104,6 +109,8 @@ namespace Services
                 entity.ReceivingYards = season.ReceivingYards;
                 entity.YardsAfterCatch = season.YardsAfterCatch;
                 entity.Touchdowns = season.Touchdowns;
+                entity.PlayerNumber = season.PlayerNumber;
+                entity.Team = season.Team;
 
                 return ctx.SaveChanges() == 1;
             }

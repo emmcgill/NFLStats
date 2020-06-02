@@ -33,5 +33,9 @@ namespace Models.SeasonStatsRB
         public int ReceivingTouchdowns { get; set; }
 
         public int Fumbles { get; set; }
+
+        public int PlayerNumber { get; set; }
+
+        public string Team { get; set; }
     }
 }

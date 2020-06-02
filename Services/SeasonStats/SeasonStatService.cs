@@ -25,7 +25,9 @@ namespace Services
                 Attempts = season.Attempts,
                 PassingTouchdowns = season.PassingTouchdowns,
                 RushingTouchdowns = season.RushingTouchdowns,
-                Interceptions = season.Interceptions
+                Interceptions = season.Interceptions,
+                PlayerNumber = season.PlayerNumber,
+                Team = season.Team
             };
             using (var ctx = new ApplicationDbContext())
             {
@@ -54,7 +56,9 @@ namespace Services
                         Attempts = season.Attempts,
                         PassingTouchdowns = season.PassingTouchdowns,
                         RushingTouchdowns = season.RushingTouchdowns,
-                        Interceptions = season.Interceptions
+                        Interceptions = season.Interceptions,
+                        PlayerNumber = season.PlayerNumber,
+                        Team = season.Team
                     };
             }
         }
@@ -80,8 +84,9 @@ namespace Services
                         Attempts = s.Attempts,
                         PassingTouchdowns = s.PassingTouchdowns,
                         RushingTouchdowns = s.RushingTouchdowns,
-                        Interceptions = s.Interceptions
-
+                        Interceptions = s.Interceptions,
+                        PlayerNumber = s.PlayerNumber,
+                        Team = s.Team
                     }
 
                     );
@@ -108,7 +113,8 @@ namespace Services
                 entity.PassingTouchdowns = season.PassingTouchdowns;
                 entity.RushingTouchdowns = season.RushingTouchdowns;
                 entity.Interceptions = season.Interceptions;
-
+                entity.PlayerNumber = season.PlayerNumber;
+                entity.Team = season.Team;
 
                 return ctx.SaveChanges() == 1;
             }

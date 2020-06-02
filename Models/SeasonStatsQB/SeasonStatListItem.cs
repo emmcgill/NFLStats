@@ -17,5 +17,7 @@ namespace Models.SeasonStatsQB
         public int PassingTouchdowns { get; set; }
         public int RushingTouchdowns { get; set; }
         public int Interceptions { get; set; }
+        public int PlayerNumber { get; set; }
+        public string Team { get; set; }
     }
 }

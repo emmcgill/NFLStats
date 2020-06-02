@@ -10,9 +10,7 @@ namespace Models
     public class PlayerDetail
     {
         public string Name { get; set; }
-        public int PlayerNumber { get; set; }
         public string PlayerPosition { get; set; }
-        public string Team { get; set; }
 
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
