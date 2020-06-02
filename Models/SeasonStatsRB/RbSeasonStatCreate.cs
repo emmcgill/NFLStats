@@ -36,5 +36,9 @@ namespace Models.SeasonStatsRB
         [Required]
         [Range(0, 23, ErrorMessage = "Fumbles must be between 0 & 23")]
         public int Fumbles { get; set; }
+        [Required]
+        public int PlayerNumber { get; set; }
+        [Required]
+        public string Team { get; set; }
     }
 }

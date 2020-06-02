@@ -36,6 +36,10 @@ namespace Data
         [Required]
         public int Fumbles { get; set; }
         public bool IsDeleted { get; set; }
+        [Required]
+        public int PlayerNumber { get; set; }
+        [Required]
+        public string Team { get; set; }
 
     }
 }

@@ -11,25 +11,12 @@ namespace Services
 {
     public class PlayerService
     {
-        private readonly int _totalVotes;
-        public PlayerService(int totalVotes)
-        {
-            _totalVotes = totalVotes;
-        }
-
-        public PlayerService()
-        {
-
-        }
-
         public bool CreatePlayer(PlayerCreate player)
         {
             var entity = new Player()
             {
                  Name = player.Name,
-                 PlayerNumber = player.PlayerNumber,
                  PlayerPosition = player.PlayerPosition,
-                 Team = player.Team
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -50,9 +37,7 @@ namespace Services
                         p => new PlayerListItem
                         {
                             Name = p.Name,
-                            PlayerNumber = p.PlayerNumber,
                             PlayerPosition = p.PlayerPosition,
-                            Team = p.Team,
                             PlayerId = p.PlayerId
                         }
                     );
@@ -72,9 +57,7 @@ namespace Services
                     new PlayerDetail
                     {
                         Name = entity.Name,
-                        PlayerNumber = entity.PlayerNumber,
                         PlayerPosition = entity.PlayerPosition,
-                        Team = entity.Team,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -111,9 +94,7 @@ namespace Services
                         .Players
                         .Single(p => p.Name == player.Name);
                 entity.Name = player.Name;
-                entity.PlayerNumber = player.PlayerNumber;
                 entity.PlayerPosition = player.PlayerPosition;
-                entity.Team = player.Team;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

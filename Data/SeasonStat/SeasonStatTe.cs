@@ -40,5 +40,9 @@ namespace Data.SeasonStats
         public int Touchdowns { get; set; }
 
         public bool IsDeleted { get; set; }
+        [Required]
+        public int PlayerNumber { get; set; }
+        [Required]
+        public string Team { get; set; }
     }
 }

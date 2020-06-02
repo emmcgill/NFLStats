@@ -25,7 +25,9 @@ namespace Services
                 Receptions = season.Receptions,
                 RushingTouchdowns = season.RushingTouchdowns,
                 ReceivingTouchdowns = season.ReceivingTouchdowns,
-                Fumbles = season.Fumbles
+                Fumbles = season.Fumbles,
+                PlayerNumber = season.PlayerNumber,
+                Team = season.Team
 
             };
             using (var ctx = new ApplicationDbContext())
@@ -55,7 +57,9 @@ namespace Services
                         Receptions = season.Receptions,
                         RushingTouchdowns = season.RushingTouchdowns,
                         ReceivingTouchdowns = season.ReceivingTouchdowns,
-                        Fumbles = season.Fumbles
+                        Fumbles = season.Fumbles,
+                        PlayerNumber = season.PlayerNumber,
+                        Team = season.Team
                     };
             }
         }
@@ -82,8 +86,9 @@ namespace Services
                         Receptions = s.Receptions,
                         RushingTouchdowns = s.RushingTouchdowns,
                         ReceivingTouchdowns = s.ReceivingTouchdowns,
-                        Fumbles = s.Fumbles
-
+                        Fumbles = s.Fumbles,
+                        PlayerNumber = s.PlayerNumber,
+                        Team = s.Team
                     }
 
                     );
@@ -110,7 +115,8 @@ namespace Services
                 entity.RushingTouchdowns = season.RushingTouchdowns;
                 entity.ReceivingTouchdowns = season.ReceivingTouchdowns;
                 entity.Fumbles = season.Fumbles;
-
+                entity.PlayerNumber = season.PlayerNumber;
+                entity.Team = season.Team;
 
 
                 return ctx.SaveChanges() == 1;
