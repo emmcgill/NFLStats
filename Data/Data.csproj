@@ -93,6 +93,14 @@
     <Compile Include="Migrations\202005301419002_initial.Designer.cs">
       <DependentUpon>202005301419002_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006022301205_movedNumberAndTeam.cs" />
+    <Compile Include="Migrations\202006022301205_movedNumberAndTeam.Designer.cs">
+      <DependentUpon>202006022301205_movedNumberAndTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006030011350_fixedTotalVotes.cs" />
+    <Compile Include="Migrations\202006030011350_fixedTotalVotes.Designer.cs">
+      <DependentUpon>202006030011350_fixedTotalVotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,6 +117,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005301419002_initial.resx">
       <DependentUpon>202005301419002_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006022301205_movedNumberAndTeam.resx">
+      <DependentUpon>202006022301205_movedNumberAndTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006030011350_fixedTotalVotes.resx">
+      <DependentUpon>202006030011350_fixedTotalVotes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

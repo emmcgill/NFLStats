@@ -21,12 +21,6 @@ namespace Data
         [MinLength(4, ErrorMessage = "You have to enter at least 4 characters.")]
         [MaxLength(30, ErrorMessage = "You entered too many characters.")]
         public string PlayerPosition { get; set; }
-        
-        public int YearsPro { get; set; }
-
-        [Required]
-        [MinLength(5, ErrorMessage = "You have to enter at least 5 characters.")]
-        [MaxLength(30, ErrorMessage = "You entered too many characters.")]
 
         public int TotalVotes { get; set; }
 
