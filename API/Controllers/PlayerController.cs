@@ -22,9 +22,9 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            PlayerService service = new PlayerService();
+            PlayerService playerService = new PlayerService();
 
-            if (!service.CreatePlayer(player))
+            if (!playerService.CreatePlayer(player))
                 return InternalServerError();
 
             return Ok();
@@ -64,9 +64,9 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            PlayerService service = new PlayerService();
+            PlayerService playerService = new PlayerService();
 
-            if (!service.UpdatePlayer(player))
+            if (!playerService.UpdatePlayer(player))
                 return InternalServerError();
 
             return Ok();
@@ -76,9 +76,9 @@ namespace API.Controllers
         [HttpDelete]
         public IHttpActionResult Delete(string name)
         {
-            PlayerService service = new PlayerService();
+            PlayerService playerService = new PlayerService();
 
-            if (!service.DeletePlayer(name))
+            if (!playerService.DeletePlayer(name))
                 return InternalServerError();
 
             return Ok();
