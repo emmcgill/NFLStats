@@ -1,4 +1,5 @@
-﻿using Models.CareerStatsQBModels;
+﻿using Data;
+using Models.CareerStatsQBModels;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -28,11 +29,12 @@ namespace API.Controllers
             return Ok();
         }
         
+        [Route("{playerId}")]
         [HttpGet]
-        public IHttpActionResult GetCareerStatTotals()
+        public IHttpActionResult GetCareerStatTotals(int playerId)
         {
             CareerStatsQBService careerService = new CareerStatsQBService();
-            var career = careerService.GetCareerStatTotals();
+            var career = careerService.GetCareerStatTotals(playerId);
             return Ok(career);
         }
 
