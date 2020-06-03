@@ -44,5 +44,11 @@ namespace Models
         [Required]
         [Range(0, 25, ErrorMessage = "Interceptions must be between 0 & 25")]
         public int Interceptions { get; set; }
+
+        [Required]
+        public int PlayerNumber { get; set; }
+
+        [Required]
+        public string Team { get; set; }
     }
 }

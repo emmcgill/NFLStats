@@ -19,7 +19,7 @@ namespace Services
 
         public bool CreateVote(VoteCreate vote)
         {
-            var entity =
+            var newVote =
                 new Vote()
                 {
                     PlayerId = vote.PlayerId
@@ -27,7 +27,7 @@ namespace Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Votes.Add(entity);
+                ctx.Votes.Add(newVote);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -77,15 +77,15 @@ namespace Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                    var entity =
+                    var voteToDelete =
                         ctx
                             .Votes
                             .Single(e => e.VoteId == vote.VoteId);
 
-                    if (!entity.IsDeleted)
+                    if (!voteToDelete.IsDeleted)
                     {
-                        entity.IsDeleted = true;
-                        entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                        voteToDelete.IsDeleted = true;
+                        voteToDelete.ModifiedUtc = DateTimeOffset.UtcNow;
                     }
                     return ctx.SaveChanges() == 1;
             }
@@ -95,15 +95,15 @@ namespace Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var voteToReactivate =
                     ctx
                         .Votes
                         .Single(e => e.VoteId == vote.VoteId);
 
-                if (entity.IsDeleted)
+                if (voteToReactivate.IsDeleted)
                 {
-                    entity.IsDeleted = false;
-                    entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                    voteToReactivate.IsDeleted = false;
+                    voteToReactivate.ModifiedUtc = DateTimeOffset.UtcNow;
                 }
                 return ctx.SaveChanges() == 1;
             }

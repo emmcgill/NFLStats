@@ -15,5 +15,7 @@ namespace Models.SeasonStatsWr
         public int ReceivingYards { get; set; }
         public int YardsAfterCatch { get; set; }
         public int Touchdowns { get; set; }
+        public int PlayerNumber { get; set; }
+        public string Team { get; set; }
     }
 }

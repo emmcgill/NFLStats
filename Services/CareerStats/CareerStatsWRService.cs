@@ -32,17 +32,17 @@ namespace Services.CareerStats
             }
         }
 
-        public IEnumerable<CareerStatsWRDetail> GetCareerStatTotals()
+        public IEnumerable<CareerStatsWRDetail> GetCareerStatTotals(int playerId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                         .Players
+                        .Where(p => p.PlayerId == playerId)
                         .Select(
                             p => new CareerStatsWRDetail
-                            {
-                                PlayerId = p.PlayerId,
+                            {                                
                                 Receptions = ctx.WrSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Receptions),
                                 Targets = ctx.WrSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Targets),
                                 Drops = ctx.WrSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Drops),

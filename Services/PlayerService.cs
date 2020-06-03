@@ -3,26 +3,25 @@ using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Services
 {
     public class PlayerService
-    { 
+    {
         public bool CreatePlayer(PlayerCreate player)
         {
-            var entity = new Player()
+            var newPlayer = new Player()
             {
                  Name = player.Name,
-                 PlayerNumber = player.PlayerNumber,
                  PlayerPosition = player.PlayerPosition,
-                 Team = player.Team
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Players.Add(entity);
+                ctx.Players.Add(newPlayer);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -38,10 +37,9 @@ namespace Services
                         p => new PlayerListItem
                         {
                             Name = p.Name,
-                            PlayerNumber = p.PlayerNumber,
                             PlayerPosition = p.PlayerPosition,
-                            Team = p.Team,
-                            PlayerId = p.PlayerId
+                            PlayerId = p.PlayerId,
+                            TotalVotes = ctx.Votes.Where(v => v.PlayerId == p.PlayerId).Count()
                         }
                     );
                 return query.ToArray();
@@ -52,19 +50,17 @@ namespace Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var player =
                     ctx
                         .Players
                         .Single(p => p.Name == name);
                 return
                     new PlayerDetail
                     {
-                        Name = entity.Name,
-                        PlayerNumber = entity.PlayerNumber,
-                        PlayerPosition = entity.PlayerPosition,
-                        Team = entity.Team,
-                        CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        Name = player.Name,
+                        PlayerPosition = player.PlayerPosition,
+                        CreatedUtc = player.CreatedUtc,
+                        ModifiedUtc = player.ModifiedUtc
                     };
             }
         }
@@ -76,15 +72,15 @@ namespace Services
                 var query =
                     ctx
                         .Players
-                        .OrderByDescending(p => p.TotalVotes)
                         .Select(
                             p => new PlayerListItem
                             {
                                 PlayerId = p.PlayerId,
                                 Name = p.Name,
                                 TotalVotes = ctx.Votes.Where(v => v.PlayerId == p.PlayerId).Count()
-                            }
-                        );
+                            })
+                        .OrderByDescending(p => p.TotalVotes);
+                
 
                 return query.ToArray();
             }
@@ -94,15 +90,13 @@ namespace Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var updatedPlayer =
                     ctx
                         .Players
                         .Single(p => p.Name == player.Name);
-                entity.Name = player.Name;
-                entity.PlayerNumber = player.PlayerNumber;
-                entity.PlayerPosition = player.PlayerPosition;
-                entity.Team = player.Team;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                updatedPlayer.Name = player.Name;
+                updatedPlayer.PlayerPosition = player.PlayerPosition;
+                updatedPlayer.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -112,12 +106,12 @@ namespace Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
+                var player =
                     ctx
                         .Players
                         .Single(p => p.Name == name);
 
-                ctx.Players.Remove(entity);
+                ctx.Players.Remove(player);
 
                 return ctx.SaveChanges() == 1;
             }

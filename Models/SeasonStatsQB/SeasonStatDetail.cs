@@ -32,5 +32,10 @@ namespace Models
         public int RushingTouchdowns { get; set; }
 
         public int Interceptions { get; set; }
+
+        public int PlayerNumber { get; set; }
+
+        public string Team { get; set; }
+
     }
 }

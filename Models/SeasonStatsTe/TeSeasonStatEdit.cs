@@ -40,5 +40,11 @@ namespace Models.SeasonStatsTe
         [Required]
         [Range(0, 23, ErrorMessage = "Touchdowns must be between 0 & 23")]
         public int Touchdowns { get; set; }
+
+        [Required]
+        public int PlayerNumber { get; set; }
+
+        [Required]
+        public string Team { get; set; }
     }
 }
