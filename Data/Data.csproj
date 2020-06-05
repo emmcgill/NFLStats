@@ -93,14 +93,6 @@
     <Compile Include="Migrations\202006050055214_initial.Designer.cs">
       <DependentUpon>202006050055214_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006050008583_Add-Migration updatedCareerCreate.cs" />
-    <Compile Include="Migrations\202006050008583_Add-Migration updatedCareerCreate.Designer.cs">
-      <DependentUpon>202006050008583_Add-Migration updatedCareerCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006050029595_anotherMigration.cs" />
-    <Compile Include="Migrations\202006050029595_anotherMigration.Designer.cs">
-      <DependentUpon>202006050029595_anotherMigration.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,12 +109,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202006050055214_initial.resx">
       <DependentUpon>202006050055214_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050008583_Add-Migration updatedCareerCreate.resx">
-      <DependentUpon>202006050008583_Add-Migration updatedCareerCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050029595_anotherMigration.resx">
-      <DependentUpon>202006050029595_anotherMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
