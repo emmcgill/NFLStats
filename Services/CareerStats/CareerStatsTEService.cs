@@ -28,6 +28,25 @@ namespace Services.CareerStats
             }
         }
 
+        public IEnumerable<CareerStatsTEListItem> GetCareerTEs()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .CareerStatsTEs
+                        .Select(
+                            c => new CareerStatsTEListItem
+                            {
+                                PlayerId = c.PlayerId,
+                                Name = c.Name,
+                            }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<CareerStatsTEDetail> GetCareerStatTotals(int playerId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -38,7 +57,9 @@ namespace Services.CareerStats
                         .Where(p => p.PlayerId == playerId)
                         .Select(
                             p => new CareerStatsTEDetail
-                            {                                
+                            {
+                                PlayerId = p.PlayerId,
+                                Name = p.Name,
                                 Receptions = ctx.TeSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Receptions),
                                 Targets = ctx.TeSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Targets),
                                 Drops = ctx.TeSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Drops),
@@ -62,12 +83,7 @@ namespace Services.CareerStats
                         .Single(c => c.CareerTEId == career.CareerTEId);
 
                 entity.PlayerId = career.PlayerId;
-                entity.Receptions = career.Receptions;
-                entity.Targets = career.Targets;
-                entity.Drops = career.Drops;
-                entity.ReceivingYards = career.ReceivingYards;
-                entity.YardsAfterCatch = career.YardsAfterCatch;
-                entity.Touchdowns = career.Touchdowns;
+                entity.Name = career.Name;
 
                 return ctx.SaveChanges() == 1;
             }

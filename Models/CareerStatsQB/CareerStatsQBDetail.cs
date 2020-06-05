@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Models.CareerStatsQBModels
+namespace Models.CareerStatsQB
 {
     public class CareerStatsQBDetail
     {
-        public int CareerQBId { get; set; }
         public int PlayerId { get; set; }
+        public string Name { get; set; }
         
         [Display(Name="Passing Yards")]
         public int PassingYards { get; set; }

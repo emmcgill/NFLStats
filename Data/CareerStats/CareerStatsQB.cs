@@ -23,28 +23,6 @@ namespace Data
         [MinLength(1, ErrorMessage = "You have to enter at least 1 character.")]
         [MaxLength(40, ErrorMessage = "You entered too many characters.")]
         public string Name { get; set; }
-
-        [Required]
-        public int PassingYards { get; set; }
-
-        [Required]
-        public int RushingYards { get; set; }
-
-        [Required]
-        public int Completions { get; set; }
-
-        [Required]
-        public int Attempts { get; set; }
-        
-        [Required]
-        public int PassingTouchdowns { get; set; }
-
-        [Required]
-        public int RushingTouchdowns { get; set; }
-
-        [Required]
-        public int Interceptions { get; set; }
-
-        
+                
     }
 }

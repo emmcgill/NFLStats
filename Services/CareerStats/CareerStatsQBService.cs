@@ -1,7 +1,6 @@
 ﻿using Data;
 using Models;
-using Models.CareerStatsQBModels;
-using Models.SeasonStatsQB;
+using Models.CareerStatsQB;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,6 +27,25 @@ namespace Services
             }
         }
 
+        public IEnumerable<CareerStatsQBListItem> GetCareerQBs()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .CareerStatsQBs
+                        .Select(
+                            c => new CareerStatsQBListItem
+                            {
+                                PlayerId = c.PlayerId,
+                                Name = c.Name
+                            }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<CareerStatsQBDetail> GetCareerStatTotals(int playerId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -38,7 +56,9 @@ namespace Services
                         .Where(p => p.PlayerId == playerId)
                         .Select(
                             p => new CareerStatsQBDetail
-                            {                                
+                            {
+                                PlayerId = p.PlayerId,
+                                Name = p.Name,
                                 PassingYards = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.PassingYards),
                                 RushingYards = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingYards),
                                 Completions = ctx.SeasonStat.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.Completions),
@@ -63,13 +83,7 @@ namespace Services
                         .Single(c => c.CareerQBId == career.CareerQBId);
 
                 entity.PlayerId = career.PlayerId;
-                entity.PassingYards = career.PassingYards;
-                entity.RushingYards = career.RushingYards;
-                entity.Completions = career.Completions;
-                entity.Attempts = career.Attempts;
-                entity.PassingTouchdowns = career.PassingTouchdowns;
-                entity.RushingTouchdowns = career.RushingTouchdowns;
-                entity.Interceptions = career.Interceptions;
+                entity.Name = career.Name;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -88,6 +102,6 @@ namespace Services
 
                 return ctx.SaveChanges() == 1;
             }
-        }               
+        }
     }
 }

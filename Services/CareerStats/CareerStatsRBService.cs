@@ -25,6 +25,25 @@ namespace Services.CareerStats
             }
         }
 
+        public IEnumerable<CareerStatsRBListItem> GetCareerRBs()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .CareerStatsRBs
+                        .Select(
+                            c => new CareerStatsRBListItem
+                            {
+                                PlayerId = c.PlayerId,
+                                Name = c.Name,
+                            }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<CareerStatsRBDetail> GetCareerStatTotals(int playerId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -35,7 +54,9 @@ namespace Services.CareerStats
                         .Where(p => p.PlayerId == playerId)
                         .Select(
                             p => new CareerStatsRBDetail
-                            {                                
+                            {
+                                PlayerId = p.PlayerId,
+                                Name = p.Name,
                                 RushingYards = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingYards),
                                 RushingAttempts = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.RushingAttempts),
                                 ReceivingYards = ctx.RbSeasonStats.Where(s => s.PlayerId == p.PlayerId).Sum(s => s.ReceivingYards),
@@ -60,13 +81,7 @@ namespace Services.CareerStats
                         .Single(c => c.CareerRBId == career.CareerRBId);
 
                 entity.PlayerId = career.PlayerId;
-                entity.RushingYards = career.RushingYards;
-                entity.RushingAttempts = career.RushingAttempts;
-                entity.ReceivingYards = career.ReceivingYards;
-                entity.Receptions = career.Receptions;
-                entity.RushingTouchdowns = career.RushingTouchdowns;
-                entity.ReceivingTouchdowns = career.ReceivingTouchdowns;
-                entity.Fumbles = career.Fumbles;
+                entity.Name = career.Name;
 
                 return ctx.SaveChanges() == 1;
             }
