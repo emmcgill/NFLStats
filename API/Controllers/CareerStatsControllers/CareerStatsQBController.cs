@@ -29,7 +29,7 @@ namespace API.Controllers
             return Ok();
         }
 
-        [Route("{all}")]
+        [Route("all")]
         [HttpGet]
         public IHttpActionResult GetAllCareerQBs()
         {

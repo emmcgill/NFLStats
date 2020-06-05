@@ -27,7 +27,7 @@ namespace API.Controllers.CareerStatsControllers
             return Ok();
         }
 
-        [Route("{all}")]
+        [Route("all")]
         [HttpGet]
         public IHttpActionResult GetAllCareerQBs()
         {
