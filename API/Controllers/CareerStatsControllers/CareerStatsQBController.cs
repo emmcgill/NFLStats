@@ -1,5 +1,5 @@
 ﻿using Data;
-using Models.CareerStatsQBModels;
+using Models.CareerStatsQB;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -21,12 +21,21 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            CareerStatsQBService service = new CareerStatsQBService();
+            CareerStatsQBService careerService = new CareerStatsQBService();
 
-            if (!service.CreateCareerStatsQB(career))
+            if (!careerService.CreateCareerStatsQB(career))
                 return InternalServerError();
 
             return Ok();
+        }
+
+        [Route("{all}")]
+        [HttpGet]
+        public IHttpActionResult GetAllCareerQBs()
+        {
+            CareerStatsQBService careerService = new CareerStatsQBService();
+            var career = careerService.GetCareerQBs();
+            return Ok(career);
         }
         
         [Route("{playerId}")]
@@ -45,9 +54,9 @@ namespace API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            CareerStatsQBService service = new CareerStatsQBService();
+            CareerStatsQBService careerService = new CareerStatsQBService();
 
-            if (!service.UpdateCareerStatsQB(careerStatsQB))
+            if (!careerService.UpdateCareerStatsQB(careerStatsQB))
                 return InternalServerError();
 
             return Ok();
@@ -57,9 +66,9 @@ namespace API.Controllers
         [HttpDelete]
         public IHttpActionResult Delete(int careerId)
         {
-            CareerStatsQBService service = new CareerStatsQBService();
+            CareerStatsQBService careerService = new CareerStatsQBService();
 
-            if (!service.DeleteCareerStatsQB(careerId))
+            if (!careerService.DeleteCareerStatsQB(careerId))
                 return InternalServerError();
 
             return Ok();
