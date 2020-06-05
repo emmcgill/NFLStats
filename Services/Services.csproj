@@ -58,6 +58,10 @@
     <Compile Include="CareerStats\CareerStatsRBService.cs" />
     <Compile Include="CareerStats\CareerStatsTEService.cs" />
     <Compile Include="CareerStats\CareerStatsWRService.cs" />
+    <Compile Include="ComparisonServices\QBComparisonService.cs" />
+    <Compile Include="ComparisonServices\RBComparisonService.cs" />
+    <Compile Include="ComparisonServices\TEComparisonService.cs" />
+    <Compile Include="ComparisonServices\WRComparisonService.cs" />
     <Compile Include="PlayerService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonStats\RbSeasonStatService.cs" />
