@@ -18,13 +18,7 @@ namespace Services
             var playerCareer = new CareerStatsQB()
             {
                 PlayerId = career.PlayerId,
-                PassingYards = career.PassingYards,
-                RushingYards = career.RushingYards,
-                Completions = career.Completions,
-                Attempts = career.Attempts,
-                PassingTouchdowns = career.PassingTouchdowns,
-                RushingTouchdowns = career.RushingTouchdowns,
-                Interceptions = career.Interceptions,
+                Name = career.Name,
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -81,14 +75,14 @@ namespace Services
             }
         }
 
-        public bool DeleteCareerStatsQB(int career)
+        public bool DeleteCareerStatsQB(int careerId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .CareerStatsQBs
-                        .Single(c => c.CareerQBId == career);
+                        .Single(c => c.CareerQBId == careerId);
 
                 ctx.CareerStatsQBs.Remove(entity);
 

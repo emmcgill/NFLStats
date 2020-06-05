@@ -19,7 +19,9 @@ namespace Data.CareerStats
         public virtual Player Player { get; set; }
 
         [Required]
-        public int Year { get; set; }
+        [MinLength(1, ErrorMessage = "You have to enter at least 1 character.")]
+        [MaxLength(40, ErrorMessage = "You entered too many characters.")]
+        public string Name { get; set; }
 
         [Required]
         public int Receptions { get; set; }

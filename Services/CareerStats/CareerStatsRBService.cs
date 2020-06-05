@@ -15,13 +15,7 @@ namespace Services.CareerStats
             var playerCareer = new CareerStatsRB()
             {
                 PlayerId = career.PlayerId,
-                RushingYards = career.RushingYards,
-                RushingAttempts = career.RushingAttempts,
-                ReceivingYards = career.ReceivingYards,
-                Receptions = career.Receptions,
-                RushingTouchdowns = career.RushingTouchdowns,
-                ReceivingTouchdowns = career.ReceivingTouchdowns,
-                Fumbles = career.Fumbles,
+                Name = career.Name,
             };
 
             using (var ctx = new ApplicationDbContext())

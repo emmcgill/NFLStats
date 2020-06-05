@@ -17,12 +17,7 @@ namespace Services.CareerStats
             var playerCareer = new CareerStatsWR()
             {
                 PlayerId = career.PlayerId,
-                Receptions = career.Receptions,
-                Targets = career.Targets,
-                Drops = career.Drops,
-                ReceivingYards = career.ReceivingYards,
-                YardsAfterCatch = career.YardsAfterCatch,
-                Touchdowns = career.Touchdowns,
+                Name = career.Name,
             };
 
             using (var ctx = new ApplicationDbContext())

@@ -12,16 +12,8 @@ namespace Models.CareerStatsTE
         public int PlayerId { get; set; }
 
         [Required]
-        public int Receptions { get; set; }
-        [Required]
-        public int Targets { get; set; }
-        [Required]
-        public int Drops { get; set; }
-        [Required]
-        public int ReceivingYards { get; set; }
-        [Required]
-        public int YardsAfterCatch { get; set; }
-        [Required]
-        public int Touchdowns { get; set; }
+        [MinLength(1, ErrorMessage = "You have to enter at least 1 character.")]
+        [MaxLength(40, ErrorMessage = "You entered too many characters.")]
+        public string Name { get; set; }
     }
 }
