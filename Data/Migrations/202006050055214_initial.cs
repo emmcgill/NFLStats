@@ -31,10 +31,7 @@ namespace Data.Migrations
                     {
                         PlayerId = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false, maxLength: 40),
-                        PlayerNumber = c.Int(nullable: false),
                         PlayerPosition = c.String(nullable: false, maxLength: 30),
-                        YearsPro = c.Int(nullable: false),
-                        Team = c.String(nullable: false, maxLength: 30),
                         TotalVotes = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
@@ -109,6 +106,8 @@ namespace Data.Migrations
                         ReceivingTouchdowns = c.Int(nullable: false),
                         Fumbles = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
+                        PlayerNumber = c.Int(nullable: false),
+                        Team = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.RbSeasonId)
                 .ForeignKey("dbo.Player", t => t.PlayerId, cascadeDelete: true)
@@ -153,6 +152,8 @@ namespace Data.Migrations
                         RushingTouchdowns = c.Int(nullable: false),
                         Interceptions = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
+                        PlayerNumber = c.Int(nullable: false),
+                        Team = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.SeasonId)
                 .ForeignKey("dbo.Player", t => t.PlayerId, cascadeDelete: true)
@@ -172,6 +173,8 @@ namespace Data.Migrations
                         YardsAfterCatch = c.Int(nullable: false),
                         Touchdowns = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
+                        PlayerNumber = c.Int(nullable: false),
+                        Team = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.TeSeasonId)
                 .ForeignKey("dbo.Player", t => t.PlayerId, cascadeDelete: true)
@@ -253,6 +256,8 @@ namespace Data.Migrations
                         YardsAfterCatch = c.Int(nullable: false),
                         Touchdowns = c.Int(nullable: false),
                         IsDeleted = c.Boolean(nullable: false),
+                        PlayerNumber = c.Int(nullable: false),
+                        Team = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.WrSeasonId)
                 .ForeignKey("dbo.Player", t => t.PlayerId, cascadeDelete: true)
