@@ -9,9 +9,9 @@ namespace Models.CareerStatsRB
 {
     public class CareerStatsRBDetail
     {
-        public int CareerRBId { get; set; }
-
         public int PlayerId { get; set; }
+
+        public string Name { get; set; }
 
         [Display(Name = "Rushing Yards")]
         public int RushingYards { get; set; }

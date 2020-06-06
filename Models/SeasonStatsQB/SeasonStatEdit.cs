@@ -42,7 +42,7 @@ namespace Models
         public int RushingTouchdowns { get; set; }
 
         [Required]
-        [Range(0, 25, ErrorMessage = "Interceptions must be between 0 & 25")]
+        [Range(0, 30, ErrorMessage = "Interceptions must be between 0 & 25")]
         public int Interceptions { get; set; }
 
         [Required]

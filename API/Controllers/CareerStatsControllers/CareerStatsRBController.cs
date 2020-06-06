@@ -20,12 +20,21 @@ namespace API.Controllers.CareerStatsControllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            CareerStatsRBService service = new CareerStatsRBService();
+            CareerStatsRBService careerService = new CareerStatsRBService();
 
-            if (!service.CreateCareerStatsRB(career))
+            if (!careerService.CreateCareerStatsRB(career))
                 return InternalServerError();
 
             return Ok();
+        }
+
+        [Route("all")]
+        [HttpGet]
+        public IHttpActionResult GetAllCareerRBs()
+        {
+            CareerStatsRBService careerService = new CareerStatsRBService();
+            var career = careerService.GetCareerRBs();
+            return Ok(career);
         }
 
         [Route("{playerId}")]
@@ -44,9 +53,9 @@ namespace API.Controllers.CareerStatsControllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            CareerStatsRBService service = new CareerStatsRBService();
+            CareerStatsRBService careerService = new CareerStatsRBService();
 
-            if (!service.UpdateCareerStatsRB(careerStatsRB))
+            if (!careerService.UpdateCareerStatsRB(careerStatsRB))
                 return InternalServerError();
 
             return Ok();
@@ -56,9 +65,9 @@ namespace API.Controllers.CareerStatsControllers
         [HttpDelete]
         public IHttpActionResult Delete(int careerId)
         {
-            CareerStatsRBService service = new CareerStatsRBService();
+            CareerStatsRBService careerService = new CareerStatsRBService();
 
-            if (!service.DeleteCareerStatsRB(careerId))
+            if (!careerService.DeleteCareerStatsRB(careerId))
                 return InternalServerError();
 
             return Ok();

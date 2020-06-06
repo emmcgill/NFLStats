@@ -9,8 +9,8 @@ namespace Models.CareerStatsTE
 {
     public class CareerStatsTEDetail
     {
-        public int CareerTEId { get; set; }
         public int PlayerId { get; set; }
+        public string Name { get; set; }
 
         public int Receptions { get; set; }
         public int Targets { get; set; }

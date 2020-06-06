@@ -13,17 +13,6 @@ namespace Models.CareerStatsWR
 
         public int PlayerId { get; set; }
 
-        [Required]
-        public int Receptions { get; set; }
-        [Required]
-        public int Targets { get; set; }
-        [Required]
-        public int Drops { get; set; }
-        [Required]
-        public int ReceivingYards { get; set; }
-        [Required]
-        public int YardsAfterCatch { get; set; }
-        [Required]
-        public int Touchdowns { get; set; }
+        public string Name { get; set; }
     }
 }
